@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jfsoft.mapper.WxOfficialaccountsMapper" >
+	
+	<resultMap id="BaseResultMap" type="com.jfsoft.model.WxOfficialaccounts" >
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="hosId" property="hosid" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="appId" property="appid" jdbcType="VARCHAR" />
+		<result column="appSecret" property="appsecret" jdbcType="VARCHAR" />
+		<result column="tel" property="tel" jdbcType="VARCHAR" />
+		<result column="creatTime" property="creattime" jdbcType="DATE" />
+		<result column="creatPer" property="creatper" jdbcType="VARCHAR" />
+		<result column="delTag" property="deltag" jdbcType="INTEGER" />
+	</resultMap>
+
+	<sql id="Base_Column_List" >
+		ID, hosId, name, appId, appSecret, tel, creatTime, creatPer, delTag
+	</sql>
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+		select 
+		<include refid="Base_Column_List" />
+		from wx_officialaccounts
+		where ID = #{id,jdbcType=INTEGER}
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+		delete from wx_officialaccounts
+		where ID = #{id,jdbcType=INTEGER}
+	</delete>
+
+	<insert id="insert" parameterType="com.jfsoft.model.WxOfficialaccounts" >
+		insert into wx_officialaccounts (ID, hosId, name, 
+			appId, appSecret, tel, 
+			creatTime, creatPer, delTag
+			)
+		values (#{id,jdbcType=INTEGER}, #{hosid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+			#{appid,jdbcType=VARCHAR}, #{appsecret,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+			#{creattime,jdbcType=DATE}, #{creatper,jdbcType=VARCHAR}, #{deltag,jdbcType=INTEGER}
+			)
+	</insert>
+
+	<insert id="insertSelective" parameterType="com.jfsoft.model.WxOfficialaccounts" >
+		insert into wx_officialaccounts
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="id != null" >
+				ID,
+			</if>
+			<if test="hosid != null" >
+				hosId,
+			</if>
+			<if test="name != null" >
+				name,
+			</if>
+			<if test="appid != null" >
+				appId,
+			</if>
+			<if test="appsecret != null" >
+				appSecret,
+			</if>
+			<if test="tel != null" >
+				tel,
+			</if>
+			<if test="creattime != null" >
+				creatTime,
+			</if>
+			<if test="creatper != null" >
+				creatPer,
+			</if>
+			<if test="deltag != null" >
+				delTag,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="id != null" >
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="hosid != null" >
+				#{hosid,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null" >
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="appid != null" >
+				#{appid,jdbcType=VARCHAR},
+			</if>
+			<if test="appsecret != null" >
+				#{appsecret,jdbcType=VARCHAR},
+			</if>
+			<if test="tel != null" >
+				#{tel,jdbcType=VARCHAR},
+			</if>
+			<if test="creattime != null" >
+				#{creattime,jdbcType=DATE},
+			</if>
+			<if test="creatper != null" >
+				#{creatper,jdbcType=VARCHAR},
+			</if>
+			<if test="deltag != null" >
+				#{deltag,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+
+	<update id="updateByPrimaryKeySelective" parameterType="com.jfsoft.model.WxOfficialaccounts" >
+		update wx_officialaccounts
+		<set >
+			<if test="hosid != null" >
+				hosId = #{hosid,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null" >
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="appid != null" >
+				appId = #{appid,jdbcType=VARCHAR},
+			</if>
+			<if test="appsecret != null" >
+				appSecret = #{appsecret,jdbcType=VARCHAR},
+			</if>
+			<if test="tel != null" >
+				tel = #{tel,jdbcType=VARCHAR},
+			</if>
+			<if test="creattime != null" >
+				creatTime = #{creattime,jdbcType=DATE},
+			</if>
+			<if test="creatper != null" >
+				creatPer = #{creatper,jdbcType=VARCHAR},
+			</if>
+			<if test="deltag != null" >
+				delTag = #{deltag,jdbcType=INTEGER},
+			</if>
+		</set>
+		where ID = #{id,jdbcType=INTEGER}
+	</update>
+
+	<update id="updateByPrimaryKey" parameterType="com.jfsoft.model.WxOfficialaccounts" >
+		update wx_officialaccounts
+		set hosId = #{hosid,jdbcType=VARCHAR},
+			name = #{name,jdbcType=VARCHAR},
+			appId = #{appid,jdbcType=VARCHAR},
+			appSecret = #{appsecret,jdbcType=VARCHAR},
+			tel = #{tel,jdbcType=VARCHAR},
+			creatTime = #{creattime,jdbcType=DATE},
+			creatPer = #{creatper,jdbcType=VARCHAR},
+			delTag = #{deltag,jdbcType=INTEGER}
+		where ID = #{id,jdbcType=INTEGER}
+	</update>
+
+</mapper>
