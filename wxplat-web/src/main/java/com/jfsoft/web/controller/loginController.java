@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.jfsoft.utils.WeixinUtil;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +32,7 @@ public class loginController {
      * @return
      */
     @GetMapping("/index")
+    @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "User")
     public HttpEntity getReport(@RequestParam String code, @RequestParam String appId){
         String appSecret = "";
         String getOpenIdUrl = "https://api.weixin.qq.com/sns/oauth2/access_token?appid="+appId+
