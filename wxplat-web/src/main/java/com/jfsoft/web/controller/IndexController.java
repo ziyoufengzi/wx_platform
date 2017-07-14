@@ -69,8 +69,8 @@ public class IndexController {
         JSONObject jsonObject = WeixinUtil.httpRequest(getOpenIdUrl, "POST", "");
         String openId = jsonObject.getJSONObject("openid").toJSONString();
         /**
-         * 存储用户信息
-         * appId,name,sex,age,cid.email,tel,
+         * 存储用户信息(登录时)
+         * appId,openId,tel
          */
         WxUser wxUser = new WxUser();
         wxUser.setAppid(appId);
