@@ -28,6 +28,7 @@ public class loginController {
 
     /**
      * 查询报告单
+     * chenxiaochun
      * @param code
      * @return
      */
