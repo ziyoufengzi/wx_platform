@@ -4,6 +4,7 @@ import com.jfsoft.mapper.WxOfficialaccountsMapper;
 import com.jfsoft.model.WxOfficialaccounts;
 import com.jfsoft.service.IWxOfficialaccountsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * @author ChenXc
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @Date 2017/7/14  13:45
  * @Description TODO(一句话描述类作用)
  */
+@Service
 public class WxOfficialaccountsImpl implements IWxOfficialaccountsService {
 
     @Autowired

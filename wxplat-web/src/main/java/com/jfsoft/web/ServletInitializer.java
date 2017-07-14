@@ -1,5 +1,6 @@
 package com.jfsoft.web;
 
+import com.jfsoft.WxApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 

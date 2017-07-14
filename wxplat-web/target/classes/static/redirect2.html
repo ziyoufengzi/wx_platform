@@ -13,7 +13,8 @@
         }
         var code = getQueryString("code");
         var appId = getQueryString("state");
-        alert(code+appId);
+
+        alert(appId);
         var tel = window.localStorage['tel'];
         if(null!=tel){
             window.location="报告查询页面";  //需要传code,appId
