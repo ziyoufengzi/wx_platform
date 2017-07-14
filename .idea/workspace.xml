@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="a25370a3-4a00-426d-9b7d-39b219914a1d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-web/src/main/java/com/jfsoft/web/controller/loginController.java" afterPath="$PROJECT_DIR$/wxplat-web/src/main/java/com/jfsoft/web/controller/loginController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/wxplat/target/" />
@@ -40,10 +39,10 @@
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1500000871304" expanded="true" signature="70503:70520" ph="..." />
-                <marker date="1500000871304" expanded="true" signature="70503:70538" ph="..." />
-                <marker date="1500000871304" expanded="true" signature="70503:70551" ph="..." />
-                <marker date="1500000871304" expanded="true" signature="70503:70566" ph="..." />
+                <marker date="1500000874096" expanded="true" signature="71305:71322" ph="..." />
+                <marker date="1500000874096" expanded="true" signature="71305:71340" ph="..." />
+                <marker date="1500000874096" expanded="true" signature="71305:71353" ph="..." />
+                <marker date="1500000874096" expanded="true" signature="71305:71368" ph="..." />
               </folding>
             </state>
           </provider>
@@ -829,7 +828,7 @@
       <updated>1499916932313</updated>
       <workItem from="1499916934727" duration="5466000" />
       <workItem from="1499926526900" duration="14321000" />
-      <workItem from="1499993124454" duration="7703000" />
+      <workItem from="1499993124454" duration="7730000" />
     </task>
     <task id="LOCAL-00001" summary="完成获取code接口">
       <created>1499996800196</created>
@@ -894,11 +893,18 @@
       <option name="project" value="LOCAL" />
       <updated>1500000765495</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="登录接口">
+      <created>1500000885300</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1500000885300</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27490000" />
+    <option name="totallyTimeSpent" value="27517000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1314,10 +1320,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1500000871304" expanded="true" signature="70503:70520" ph="..." />
-            <marker date="1500000871304" expanded="true" signature="70503:70538" ph="..." />
-            <marker date="1500000871304" expanded="true" signature="70503:70551" ph="..." />
-            <marker date="1500000871304" expanded="true" signature="70503:70566" ph="..." />
+            <marker date="1500000874096" expanded="true" signature="71305:71322" ph="..." />
+            <marker date="1500000874096" expanded="true" signature="71305:71340" ph="..." />
+            <marker date="1500000874096" expanded="true" signature="71305:71353" ph="..." />
+            <marker date="1500000874096" expanded="true" signature="71305:71368" ph="..." />
           </folding>
         </state>
       </provider>
