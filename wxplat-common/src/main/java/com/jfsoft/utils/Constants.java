@@ -7,6 +7,12 @@ package com.jfsoft.utils;
  */
 public class Constants {
 
+    /** Controller返回状态码 */
+    //成功
+    public static final String RETURN_STATUS_SUCCESS = "success";
+    //失败
+    public static final String RETURN_STATUS_FAILURE = "failure";
+
     /** 是否使用：是 */
     public static final String IS_USE_TRUE = "1";
     public static final String IS_USE_FALSE = "0";
