@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        <!-- 获取浏览器url参数(code) -->
+        function GetQueryString(name)
+        {
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if(r!=null)return  unescape(r[2]); return null;
+        }
+        var code = GetQueryString("code");
+        var appId = GetQueryString("appId");
+
+        var tel = window.localStorage['tel'];
+        if(null!=tel){
+            window.location="报告查询页面";  //需要传code,appId
+        }else {
+            window.location="登录页面";     //需要传code和tel,appId
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

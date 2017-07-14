@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>redirect</title>
+    <script>
+        <!-- 获取浏览器url参数(appId) -->
+        function GetQueryString(name)
+        {
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if(r!=null)return  unescape(r[2]); return null;
+        }
+        var appId = GetQueryString("appId");
+        <!-- 重定向 -->
+        var wxUrl = encodeURI("http://oa.bjjfsoft.com/handler2.ashx?redirect=static/redirect2.html?appId="+appId);
+        var getCodeUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" +appId+
+            "&redirect_uri="+wxUrl+"&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
+        location.href=getCodeUrl;
+    </script>
+</head>
+<body>
+
+</body>
+</html>
