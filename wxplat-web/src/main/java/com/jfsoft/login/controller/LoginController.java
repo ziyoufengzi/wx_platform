@@ -29,10 +29,10 @@ public class LoginController {
      * wanggang
      * 2017-7-14 09:18:05
      */
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "",method = RequestMethod.GET)
     public String toLogin() {
 
-        return "login";
+        return "loginSystem";
     }
 
     /**
