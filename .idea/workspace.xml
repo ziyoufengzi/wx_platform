@@ -837,7 +837,7 @@
       <updated>1499916932313</updated>
       <workItem from="1499916934727" duration="5466000" />
       <workItem from="1499926526900" duration="14321000" />
-      <workItem from="1499993124454" duration="7350000" />
+      <workItem from="1499993124454" duration="7583000" />
     </task>
     <task id="LOCAL-00001" summary="完成获取code接口">
       <created>1499996800196</created>
@@ -888,11 +888,18 @@
       <option name="project" value="LOCAL" />
       <updated>1500000401789</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="登录接口">
+      <created>1500000522008</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1500000522008</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27137000" />
+    <option name="totallyTimeSpent" value="27370000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
