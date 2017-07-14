@@ -27,6 +27,11 @@ public class WxUser {
     private String appid;
 
     /**
+     * 微信用户唯一ID
+     */
+    private String openId;
+
+    /**
      * 用户姓名
      */
     private String name;
@@ -85,6 +90,14 @@ public class WxUser {
 
     public void setAppid(String appid) {
         this.appid = appid == null ? null : appid.trim();
+    }
+
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
     }
 
     public String getName() {

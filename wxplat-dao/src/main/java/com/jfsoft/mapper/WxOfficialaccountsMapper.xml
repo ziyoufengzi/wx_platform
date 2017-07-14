@@ -147,4 +147,7 @@
 		where ID = #{id,jdbcType=INTEGER}
 	</update>
 
+	<select id="selectAppSecretByAppId" resultMap="WxOfficialaccounts" parameterType="java.lang.String" >
+		SELECT * FROM wx_officialaccounts WHERE appId = #{appId,jdbcType=VARCHAR}
+	</select>
 </mapper>

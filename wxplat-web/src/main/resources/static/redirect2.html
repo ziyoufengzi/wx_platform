@@ -5,15 +5,16 @@
     <title>Title</title>
     <script>
         <!-- 获取浏览器url参数(code) -->
-        function GetQueryString(name)
-        {
-            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
             var r = window.location.search.substr(1).match(reg);
-            if(r!=null)return  unescape(r[2]); return null;
+            if (r != null) return unescape(r[2]);
+            return null;
         }
-        var code = GetQueryString("code");
-        var appId = GetQueryString("appId");
+        var code = getQueryString("code");
+        var appId = getQueryString("state");
 
+        alert(appId);
         var tel = window.localStorage['tel'];
         if(null!=tel){
             window.location="报告查询页面";  //需要传code,appId

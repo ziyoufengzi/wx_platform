@@ -27,5 +27,11 @@ public interface WxOfficialaccountsMapper {
     int updateByPrimaryKeySelective(WxOfficialaccounts record);
 
     int updateByPrimaryKey(WxOfficialaccounts record);
-    
+
+    /**
+     * 根据appId查询appSecret
+     * @param appId
+     * @return
+     */
+    WxOfficialaccounts selectAppSecretByAppId(String appId);
 }

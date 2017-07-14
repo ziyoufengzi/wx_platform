@@ -13,7 +13,7 @@
         }
         var appId = GetQueryString("appId");
         <!-- 重定向 -->
-        var wxUrl = encodeURI("http://oa.bjjfsoft.com/handler2.ashx?redirect=static/redirect2.html?appId="+appId);
+        var wxUrl = encodeURI("http://oa.bjjfsoft.com/handler2.ashx?redirect=static/redirect2.html");
         var getCodeUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" +appId+
             "&redirect_uri="+wxUrl+"&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
         location.href=getCodeUrl;
