@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="wxplat-web:war">
+    <output-path>$PROJECT_DIR$/wxplat-web/target</output-path>
+    <root id="archive" name="wxplat-web.war">
+      <element id="artifact" artifact-name="wxplat-web:war exploded" />
+    </root>
+  </artifact>
+</component>

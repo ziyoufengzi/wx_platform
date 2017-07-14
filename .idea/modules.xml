@@ -3,6 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/wx_plat.iml" filepath="$PROJECT_DIR$/wx_plat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wxplat/wxplat.iml" filepath="$PROJECT_DIR$/wxplat/wxplat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wxplat-api/wxplat-api.iml" filepath="$PROJECT_DIR$/wxplat-api/wxplat-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wxplat-common/wxplat-common.iml" filepath="$PROJECT_DIR$/wxplat-common/wxplat-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wxplat-dao/wxplat-dao.iml" filepath="$PROJECT_DIR$/wxplat-dao/wxplat-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wxplat-service/wxplat-service.iml" filepath="$PROJECT_DIR$/wxplat-service/wxplat-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wxplat-web/wxplat-web.iml" filepath="$PROJECT_DIR$/wxplat-web/wxplat-web.iml" />
     </modules>
   </component>
 </project>

@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/wxplat-web" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/wxplat/pom.xml" />
+        <option value="$PROJECT_DIR$/wxplat-api/pom.xml" />
+        <option value="$PROJECT_DIR$/wxplat-common/pom.xml" />
+        <option value="$PROJECT_DIR$/wxplat-dao/pom.xml" />
+        <option value="$PROJECT_DIR$/wxplat-service/pom.xml" />
+        <option value="$PROJECT_DIR$/wxplat-web/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="mySupportsUserInfoFilter" value="true" />
   </component>
   <component name="masterDetails">
     <states>
