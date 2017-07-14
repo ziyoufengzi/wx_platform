@@ -18,9 +18,9 @@ import java.util.Arrays;
 public class WxApplication {
     public static void main(String[] args) {
 
-        //SpringApplication.run(WxApplication.class, args);
+        SpringApplication.run(WxApplication.class, args);
 
-        ApplicationContext ctx = SpringApplication.run(WxApplication.class, args);
+        /*ApplicationContext ctx = SpringApplication.run(WxApplication.class, args);
 
         System.out.println("Let's inspect the beans provided by Spring Boot:");
 
@@ -28,7 +28,7 @@ public class WxApplication {
         Arrays.sort(beanNames);
         for (String beanName : beanNames) {
             System.out.println(beanName);
-        }
+        }*/
 
     }
 }

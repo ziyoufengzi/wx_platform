@@ -2,24 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5e25c7e-7496-4be4-800d-56b9ed4e54b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wxplat-web/src/main/resources/templates/loginSystem.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_3_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wxplat-web/src/main/resources/templates/login.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wxplat-web/target/classes/templates/login.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wxplat-web/src/main/resources/static/images/0.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wxplat-web/src/main/resources/static/images/logo-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wxplat-web/src/main/resources/static/datas/area_data.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wxplat-web/src/main/resources/static/datas/btable_data.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wxplat-web/src/main/resources/static/datas/laytpl_laypage_data.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wxplat-web/src/main/resources/static/datas/nav.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wxplat-web/src/main/resources/static/datas/nav.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wxplat-web/src/main/resources/static/datas/nav_content.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wxplat-web/src/main/resources/static/datas/nav_member.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-api/wxplat-api.iml" afterPath="$PROJECT_DIR$/wxplat-api/wxplat-api.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-common/wxplat-common.iml" afterPath="$PROJECT_DIR$/wxplat-common/wxplat-common.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-dao/wxplat-dao.iml" afterPath="$PROJECT_DIR$/wxplat-dao/wxplat-dao.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-service/wxplat-service.iml" afterPath="$PROJECT_DIR$/wxplat-service/wxplat-service.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-web/pom.xml" afterPath="$PROJECT_DIR$/wxplat-web/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-web/src/main/java/com/jfsoft/WxApplication.java" afterPath="$PROJECT_DIR$/wxplat-web/src/main/java/com/jfsoft/WxApplication.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-web/src/main/java/com/jfsoft/login/controller/LoginController.java" afterPath="$PROJECT_DIR$/wxplat-web/src/main/java/com/jfsoft/login/controller/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-web/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/wxplat-web/src/main/resources/application.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-web/src/main/resources/templates/index.html" afterPath="$PROJECT_DIR$/wxplat-web/src/main/resources/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-web/target/classes/application.properties" afterPath="$PROJECT_DIR$/wxplat-web/target/classes/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-web/src/main/resources/templates/loginSystem.html" afterPath="$PROJECT_DIR$/wxplat-web/src/main/resources/templates/loginSystem.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-web/target/classes/templates/index.html" afterPath="$PROJECT_DIR$/wxplat-web/target/classes/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-web/wxplat-web.iml" afterPath="$PROJECT_DIR$/wxplat-web/wxplat-web.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/wxplat/target/" />
@@ -34,6 +31,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
@@ -51,8 +51,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wxplat-web/src/main/resources/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="1127">
+              <caret line="117" column="36" lean-forward="true" selection-start-line="117" selection-start-column="36" selection-end-line="117" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -91,17 +91,17 @@
       <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wxplat-web/src/main/java/com/jfsoft/login/controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="405">
+              <caret line="64" column="5" lean-forward="true" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loginSystem.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="loginSystem.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wxplat-web/src/main/resources/templates/loginSystem.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
+            <state relative-caret-position="171">
               <caret line="42" column="42" lean-forward="false" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
               <folding />
             </state>
@@ -111,28 +111,18 @@
       <file leaf-file-name="WxApplication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wxplat-web/src/main/java/com/jfsoft/WxApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="22" column="68" lean-forward="false" selection-start-line="22" selection-start-column="68" selection-end-line="22" selection-end-column="68" />
+            <state relative-caret-position="285">
+              <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="true">
+      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wxplat-web/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="304">
               <caret line="16" column="6" lean-forward="false" selection-start-line="15" selection-start-column="9" selection-end-line="16" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wxplat-web/src/main/webapp/index.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -151,6 +141,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>logincontroller</find>
+      <find>loginsystem</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -174,7 +165,6 @@
         <option value="$PROJECT_DIR$/wxplat-common/src/main/java/com/jfsoft/utils/MyX509TrustManager.java" />
         <option value="$PROJECT_DIR$/wxplat-common/src/main/java/com/jfsoft/utils/WeixinUtil.java" />
         <option value="$PROJECT_DIR$/wxplat-web/src/main/resources/templates/redirect.html" />
-        <option value="$PROJECT_DIR$/wxplat-web/src/main/resources/templates/index.html" />
         <option value="$PROJECT_DIR$/wxplat-web/src/main/resources/static/redirect.html" />
         <option value="$PROJECT_DIR$/wxplat-web/src/main/resources/static/redirect2.html" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -185,9 +175,10 @@
         <option value="$PROJECT_DIR$/wxplat-service/src/main/java/com/jfsoft/service/impl/WxUserImpl.java" />
         <option value="$PROJECT_DIR$/wxplat/pom.xml" />
         <option value="$PROJECT_DIR$/wxplat-web/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/wxplat-web/src/main/java/com/jfsoft/WxApplication.java" />
         <option value="$PROJECT_DIR$/wxplat-web/pom.xml" />
+        <option value="$PROJECT_DIR$/wxplat-web/src/main/java/com/jfsoft/WxApplication.java" />
         <option value="$PROJECT_DIR$/wxplat-web/src/main/java/com/jfsoft/login/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/wxplat-web/src/main/resources/templates/index.html" />
         <option value="$PROJECT_DIR$/wxplat-web/src/main/resources/templates/loginSystem.html" />
       </list>
     </option>
@@ -701,6 +692,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wx_platform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wx_platform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxplat-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1092,16 +1117,17 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../0629/cloud" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\公司项目\微信消息平台\wx_platform\wxplat-web\src\main\resources\static" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\0715\wx_platform\wxplat-web\src\main\resources\static" />
       <recent name="D:\IdeaProjects\0715\wx_platform\wxplat-web\src\main\resources" />
       <recent name="E:\公司项目\微信消息平台\wx_platform\wxplat-common\src\main\java\com\jfsoft\utils" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\公司项目\微信消息平台\wx_platform\wxplat-web\src\main\resources\static" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1557,7 +1583,7 @@
       <workItem from="1500010018534" duration="71000" />
       <workItem from="1500010133646" duration="1549000" />
       <workItem from="1500012505884" duration="2739000" />
-      <workItem from="1500017123428" duration="2221000" />
+      <workItem from="1500017123428" duration="3560000" />
     </task>
     <task id="LOCAL-00001" summary="完成获取code接口">
       <created>1499996800196</created>
@@ -1692,11 +1718,18 @@
       <option name="project" value="LOCAL" />
       <updated>1500016329183</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="添加登录页面">
+      <created>1500019365533</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1500019365533</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38967000" />
+    <option name="totallyTimeSpent" value="40306000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1723,7 +1756,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23995535" sideWeight="0.49253732" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26599148" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26599148" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1756,14 +1790,14 @@
     <MESSAGE value="完成获取code接口" />
     <MESSAGE value="登录接口" />
     <MESSAGE value="添加作者" />
-    <MESSAGE value="添加登录页面" />
     <MESSAGE value="添加常量" />
     <MESSAGE value="添加mybatis、数据库连接配置" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加mybatis、数据库连接配置" />
+    <MESSAGE value="添加登录页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加登录页面" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="17" />
+      <option name="time" value="18" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1772,21 +1806,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.9.RELEASE/spring-webmvc-4.3.9.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8569">
-          <caret line="451" column="0" lean-forward="false" selection-start-line="451" selection-start-column="0" selection-end-line="451" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wxplat-web/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="36" column="37" lean-forward="false" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wxplat-common/src/main/java/com/jfsoft/utils/WeixinUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1007">
@@ -1984,6 +2003,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2079,22 +2099,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wxplat-web/src/main/resources/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wxplat-web/src/main/resources/static/redirect.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="15" column="101" lean-forward="false" selection-start-line="15" selection-start-column="101" selection-end-line="15" selection-end-column="101" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wxplat-web/src/main/resources/static/redirect2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -2119,34 +2123,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wxplat-web/src/main/java/com/jfsoft/WxApplication.java">
+    <entry file="file://$PROJECT_DIR$/wxplat-web/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="22" column="68" lean-forward="false" selection-start-line="22" selection-start-column="68" selection-end-line="22" selection-end-column="68" />
+        <state relative-caret-position="304">
+          <caret line="16" column="6" lean-forward="false" selection-start-line="15" selection-start-column="9" selection-end-line="16" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wxplat-web/src/main/java/com/jfsoft/WxApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxplat-web/src/main/resources/static/datas/nav.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxplat-web/src/main/resources/static/images/0.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wxplat-web/src/main/java/com/jfsoft/login/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state relative-caret-position="405">
+          <caret line="64" column="5" lean-forward="true" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxplat-web/src/main/resources/static/redirect.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="15" column="101" lean-forward="false" selection-start-line="15" selection-start-column="101" selection-end-line="15" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxplat-web/src/main/resources/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1127">
+          <caret line="117" column="36" lean-forward="true" selection-start-line="117" selection-start-column="36" selection-end-line="117" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wxplat-web/src/main/resources/templates/loginSystem.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
+        <state relative-caret-position="171">
           <caret line="42" column="42" lean-forward="false" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wxplat-web/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="6" lean-forward="false" selection-start-line="15" selection-start-column="9" selection-end-line="16" selection-end-column="6" />
           <folding />
         </state>
       </provider>

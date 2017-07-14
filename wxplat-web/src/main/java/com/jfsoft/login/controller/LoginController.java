@@ -40,8 +40,8 @@ public class LoginController {
      * wanggang
      * 2017-7-13 15:14:16
      */
-    @RequestMapping(value = "/{username}/{password}", method = RequestMethod.POST)
-    public String signIn(@PathVariable String username, @PathVariable String password) {
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    public String signIn(String username, String password) {
 
         return "index";
     }
@@ -51,7 +51,7 @@ public class LoginController {
      * wanggang
      * 2017-7-13 15:27:56
      */
-    @RequestMapping(value = "/{username}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/signOut", method = RequestMethod.GET)
     public String logout(HttpSession session) {
 
         Enumeration em = session.getAttributeNames();
@@ -61,7 +61,7 @@ public class LoginController {
 
         session.invalidate();
 
-        return Constants.RETURN_STATUS_SUCCESS;
+        return "loginSystem";
     }
 
 }
