@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>微信消息平台后台管理系统</title>
-        <link rel="stylesheet" th:href="@{/static/layui/css/layui.css}" media="all" />
+        <link rel="stylesheet" th:href="@{/static/plugins/layui/css/layui.css}" media="all" />
         <link rel="stylesheet" th:href="@{/static/css/global.css}" media="all" />
     </head>
     <body>
@@ -11,7 +11,7 @@
                 <div class="layui-main">
                     <div class="admin-login-box">
                         <a class="logo" style="left: 0;" href="http://beginner.zhengjinfan.cn/demo/beginner_admin/">
-                            <span style="font-size: 22px;">BeginnerAdmin</span>
+                            <span style="font-size: 22px;">微信消息平台</span>
                         </a>
                         <div class="admin-side-toggle">
                             <i class="fa fa-bars" aria-hidden="true"></i>
@@ -32,8 +32,8 @@
                         </li>
                         <li class="layui-nav-item">
                             <a href="javascript:;" class="admin-header-user">
-                                <img src="images/0.jpg" />
-                                <span>beginner</span>
+                                <img src="static/images/0.jpg" />
+                                <span>${username}</span>
                             </a>
                             <dl class="layui-nav-child">
                                 <dd>
@@ -73,7 +73,7 @@
                     </ul>
                     <div class="layui-tab-content" style="min-height: 150px; padding: 5px 0 0 0;">
                         <div class="layui-tab-item layui-show">
-                            <iframe src="main.html"></iframe>
+                            <iframe src="hos/list"></iframe>
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
             <div class="layui-footer footer footer-demo" id="admin-footer">
                 <div class="layui-main">
                     <p>2016 &copy;
-                        <a href="http://m.zhengjinfan.cn/">m.zhengjinfan.cn/</a> LGPL license
+                        <a href="http://http://www.jfsoft.com//">http://www.jfsoft.com//</a> LGPL license
                     </p>
                 </div>
             </div>
@@ -103,9 +103,9 @@
             </script>
             <!--锁屏模板 end -->
 
-            <script type="text/javascript" th:src="@{/static/layui/layui.js}"></script>
+            <script type="text/javascript" th:src="@{/static/plugins/layui/layui.js}"></script>
             <script type="text/javascript" th:src="@{/static/datas/nav.js}"></script>
-            <script type="text/javascript" th:src="@{/static/js/index.js}"></script>
+            <script th:src="@{/static/js/index.js}"></script>
             <script>
                 layui.use('layer', function() {
                     var $ = layui.jquery,

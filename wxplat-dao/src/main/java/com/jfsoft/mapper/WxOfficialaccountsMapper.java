@@ -9,6 +9,9 @@ package com.jfsoft.mapper;
 
 import com.jfsoft.model.WxOfficialaccounts;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * 医院公众号
  * @author wanggang
@@ -16,22 +19,25 @@ import com.jfsoft.model.WxOfficialaccounts;
  */
 public interface WxOfficialaccountsMapper {
 
-	int deleteByPrimaryKey(Integer id);
-
-    int insert(WxOfficialaccounts record);
-
-    int insertSelective(WxOfficialaccounts record);
-
-    WxOfficialaccounts selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(WxOfficialaccounts record);
-
-    int updateByPrimaryKey(WxOfficialaccounts record);
-
     /**
      * 根据appId查询appSecret
      * @param appId
      * @return
      */
     WxOfficialaccounts selectAppSecretByAppId(String appId);
+
+    /**
+     * 分页查询医院信息
+     * wanggang
+     * 2017-7-17 10:30:30
+     */
+    List<WxOfficialaccounts> findPage(Map<String, Object> params);
+
+    /**
+     * 查询医院总数
+     * wanggang
+     * 2017-7-17 12:40:19
+     */
+    int findPageCount(Map<String, Object> params);
+
 }

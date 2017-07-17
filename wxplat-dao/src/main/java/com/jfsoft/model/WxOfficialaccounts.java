@@ -49,7 +49,7 @@ public class WxOfficialaccounts {
     /**
      * 创建时间
      */
-    private Date creattime;
+    private String creattime;
 
     /**
      * 创建人
@@ -109,14 +109,6 @@ public class WxOfficialaccounts {
         this.tel = tel == null ? null : tel.trim();
     }
 
-    public Date getCreattime() {
-        return creattime;
-    }
-
-    public void setCreattime(Date creattime) {
-        this.creattime = creattime;
-    }
-
     public String getCreatper() {
         return creatper;
     }
@@ -131,6 +123,14 @@ public class WxOfficialaccounts {
 
     public void setDeltag(Integer deltag) {
         this.deltag = deltag;
+    }
+
+    public String getCreattime() {
+        return creattime;
+    }
+
+    public void setCreattime(String creattime) {
+        this.creattime = creattime;
     }
 
 }

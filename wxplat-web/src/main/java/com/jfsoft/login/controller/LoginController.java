@@ -5,12 +5,15 @@ import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.Enumeration;
+import java.util.Map;
 
 /**
  * 登录
@@ -41,7 +44,9 @@ public class LoginController {
      * 2017-7-13 15:14:16
      */
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public String signIn(String username, String password) {
+    public String signIn(Map<String,Object> map, String username, String password) {
+
+        map.put("username", username);
 
         return "index";
     }
