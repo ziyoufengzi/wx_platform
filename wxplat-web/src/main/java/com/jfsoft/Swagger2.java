@@ -1,4 +1,4 @@
-package com.jfsoft.web;
+package com.jfsoft;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,7 +34,7 @@ public class Swagger2 {
         return new ApiInfoBuilder()
                 .title("微信消息平台RESTful APIs")
                 .description("微信消息平台接口文档")
-                .termsOfServiceUrl("http://localhost:3334/")
+                .termsOfServiceUrl("http://localhost:3333/")
                 .contact("JF-JAVA")
                 .version("1.0")
                 .build();

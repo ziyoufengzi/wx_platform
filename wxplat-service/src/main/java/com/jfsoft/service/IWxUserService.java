@@ -9,5 +9,10 @@ import com.jfsoft.model.WxUser;
  * @Description TODO(一句话描述类作用)
  */
 public interface IWxUserService {
+
     int insert(WxUser record);
+
+    int selectCountByOpenId(String openId);
+
+    int updateTel(WxUser wxUser);
 }

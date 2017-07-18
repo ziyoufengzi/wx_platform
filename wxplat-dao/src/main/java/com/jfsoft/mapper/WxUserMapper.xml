@@ -169,4 +169,13 @@
 		where ID = #{id,jdbcType=INTEGER}
 	</update>
 
+	<select id="selectCountByOpenId" parameterType="java.lang.String" resultType="java.lang.Integer">
+		SELECT COUNT (*) FROM  wx_user WHERE openId = #{openId,jdbcType=VARCHAR}
+	</select>
+
+	<update id="updateTel" parameterType="com.jfsoft.model.WxUser" >
+		UPDATE  wx_user
+		SET tel = #{tel,jdbcType=VARCHAR}
+		WHERE openId = #{openId,jdbcType=VARCHAR}
+	</update>
 </mapper>

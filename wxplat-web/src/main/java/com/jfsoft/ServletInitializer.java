@@ -1,4 +1,4 @@
-package com.jfsoft.web;
+package com.jfsoft;
 
 import com.jfsoft.WxApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;

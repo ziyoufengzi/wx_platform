@@ -27,5 +27,8 @@ public interface WxUserMapper {
     int updateByPrimaryKeySelective(WxUser record);
 
     int updateByPrimaryKey(WxUser record);
-    
+
+    int selectCountByOpenId(String openId);
+
+    int updateTel(WxUser wxUser);
 }
