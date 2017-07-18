@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jfsoft.mapper.WxOfficialaccountsMapper" >
+	
+	<resultMap id="BaseResultMap" type="com.jfsoft.model.WxOfficialaccounts" >
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="hosId" property="hosid" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="appId" property="appid" jdbcType="VARCHAR" />
+		<result column="appSecret" property="appsecret" jdbcType="VARCHAR" />
+		<result column="tel" property="tel" jdbcType="VARCHAR" />
+		<result column="creatTime" property="creattime" jdbcType="DATE" />
+		<result column="creatPer" property="creatper" jdbcType="VARCHAR" />
+		<result column="delTag" property="deltag" jdbcType="INTEGER" />
+	</resultMap>
+
+    <select id="selectAppSecretByAppId" resultType="com.jfsoft.model.WxOfficialaccounts" parameterType="java.lang.String" >
+        SELECT * FROM wx_officialaccounts WHERE appId = #{appId,jdbcType=VARCHAR}
+    </select>
+
+	<!-- 查询分页列表 -->
+	<select id="findPage" resultMap="BaseResultMap" parameterType="java.util.Map">
+		SELECT
+			id,hosId,NAME,appid,appSecret,tel,creatTime,creatPer,delTag
+		FROM
+			wx_officialaccounts
+		<where>
+            <if test="hospitalName!='' and hospitalName!=null">
+                AND NAME LIKE #{hospitalName}
+            </if>
+        </where>
+		ORDER BY
+			creatTime
+		LIMIT #{pageStart}, #{pageSize}
+	</select>
+    <select id="findPageCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+        SELECT
+            count(*)
+        FROM
+        wx_officialaccounts
+        <where>
+            <if test="hospitalName!='' and hospitalName!=null">
+                AND NAME LIKE #{hospitalName}
+            </if>
+        </where>
+    </select>
+
+	<!-- 新增 -->
+	<insert id="insert" parameterType="com.jfsoft.model.WxOfficialaccounts" >
+		insert into wx_officialaccounts (ID, hosId, name,
+		appId, appSecret, tel,
+		creatTime, creatPer, delTag
+		)
+		values (#{id,jdbcType=INTEGER}, #{hosid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+		#{appid,jdbcType=VARCHAR}, #{appsecret,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR},
+		#{creattime,jdbcType=DATE}, #{creatper,jdbcType=VARCHAR}, #{deltag,jdbcType=INTEGER}
+		)
+	</insert>
+
+</mapper>

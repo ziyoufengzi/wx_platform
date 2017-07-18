@@ -1525,7 +1525,7 @@
       <workItem from="1500010133646" duration="1549000" />
       <workItem from="1500012505884" duration="2739000" />
       <workItem from="1500017123428" duration="2221000" />
-      <workItem from="1500355594102" duration="509000" />
+      <workItem from="1500355594102" duration="606000" />
     </task>
     <task id="LOCAL-00001" summary="完成获取code接口">
       <created>1499996800196</created>
@@ -1667,11 +1667,18 @@
       <option name="project" value="LOCAL" />
       <updated>1500356044062</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="完成模板推送模板消息和短信验证码接口">
+      <created>1500356108215</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1500356108215</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45476000" />
+    <option name="totallyTimeSpent" value="45573000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1911,7 +1918,7 @@
         <state relative-caret-position="-1273">
           <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
           <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
