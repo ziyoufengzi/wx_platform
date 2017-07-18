@@ -37,6 +37,8 @@
 								<th style="width: 30px;"><input type="checkbox" lay-filter="allselector" lay-skin="primary" /></th>
 								<th>医院名称</th>
 								<th>AppId</th>
+								<th>AppSecret</th>
+								<th>联系电话</th>
 								<th>创建时间</th>
 								<th>操作</th>
 							</tr>
@@ -58,9 +60,11 @@
 				<td><input type="checkbox" lay-skin="primary" /></td>
 				<td>{{ item.name }}</td>
 				<td>{{ item.appid }}</td>
-				<td>{{ item.creattime }}</td>
+				<td>{{ item.appsecret }}</td>
+				<td>{{ item.tel }}</td>
+				<td>{{ item.createtimeStr }}</td>
 				<td>
-					<a href="/detail-1" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
+					<!--<a href="/detail-1" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>-->
 					<a href="javascript:;" data-name="{{ item.name }}" data-opt="edit" class="layui-btn layui-btn-mini">编辑</a>
 					<a href="javascript:;" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
 				</td>
@@ -72,6 +76,10 @@
 			layui.config({
 				base: '/static/js/'
 			});
+
+            function edit() {
+                alert("edit");
+            }
 
 			layui.use(['paging', 'form'], function() {
 				var $ = layui.jquery,
@@ -90,7 +98,7 @@
 					tempElem: '#tpl', //模块容器
 					pageConfig: { //分页参数配置
 						elem: '#paged', //分页容器
-						pageSize: 3, //分页大小
+						pageSize: 10, //分页大小
 						skip:true
 					},
 					success: function() { //渲染成功的回调
@@ -118,7 +126,45 @@
 						$('#content').children('tr').each(function() {
 							var $that = $(this);
 							$that.children('td:last-child').children('a[data-opt=edit]').on('click', function() {
-								layer.msg($(this).data('name'));
+								//layer.msg($(this).data('name'));
+
+                                //本表单通过ajax加载 --以模板的形式，当然你也可以直接写在页面上读取
+                                $.get('toEdit', null, function(form) {
+                                    addBoxIndex = layer.open({
+                                        type: 1,
+                                        title: '编辑医院信息',
+                                        content: form,
+                                        btn: ['保存', '取消'],
+                                        shade: false,
+                                        offset: ['100px', '30%'],
+                                        area: ['600px', '400px'],
+                                        zIndex: 1000,
+                                        maxmin: true,
+                                        yes: function(index) {
+                                            //触发表单的提交事件
+                                            $('form.layui-form').find('button[lay-filter=edit]').click();
+                                        },
+                                        full: function(elem) {
+                                            var win = window.top === window.self ? window : parent.window;
+                                            $(win).on('resize', function() {
+                                                var $this = $(this);
+                                                elem.width($this.width()).height($this.height()).css({
+                                                    top: 0,
+                                                    left: 0
+                                                });
+                                                elem.children('div.layui-layer-content').height($this.height() - 95);
+                                            });
+                                        },
+                                        success: function(layero, index) {
+
+                                            //console.log(layero, index);
+                                        },
+                                        end: function() {
+                                            addBoxIndex = -1;
+                                        }
+                                    });
+                                });
+
 							});
 
 						});
@@ -210,6 +256,7 @@
 						});
 					});
 				});
+
 
 				$('#import').on('click', function() {
 					var that = this;

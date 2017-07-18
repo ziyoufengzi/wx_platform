@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -38,6 +39,13 @@ public class HospitalServiceImpl implements IHospitalService {
 
         List<WxOfficialaccounts> hospitalInfoList = wxOfficialaccountsMapper.findPage(params);
 
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        for (WxOfficialaccounts wx : hospitalInfoList) {
+            Date createTime = wx.getCreatetime();
+            String createTimeStr = sdf.format(createTime);
+            wx.setCreatetimeStr(createTimeStr);
+        }
+
         return hospitalInfoList;
     }
 
@@ -56,7 +64,7 @@ public class HospitalServiceImpl implements IHospitalService {
 
     public int save(WxOfficialaccounts wxOfficialaccounts) throws Exception {
 
-        wxOfficialaccounts.setCreattime(new Date());
+        wxOfficialaccounts.setCreatetime(new Date());
         wxOfficialaccounts.setDeltag(Integer.parseInt(Constants.IS_DELETE_FALSE));
 
         int count = wxOfficialaccountsMapper.insert(wxOfficialaccounts);

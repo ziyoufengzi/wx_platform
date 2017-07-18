@@ -11,11 +11,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -68,6 +70,7 @@ public class HospitalController extends BaseController {
         try {
             hospitalInfoList = hospitalService.findHospitalInfoList(hospitalName, pageIndex, pageSize);
             count = hospitalService.findHospitalInfoCount(hospitalName);
+
             result.put("list", hospitalInfoList);
             result.put("count", count);
         } catch (Exception e) {
@@ -78,7 +81,7 @@ public class HospitalController extends BaseController {
         result.put("message", "获取成功");
 
         SimplePropertyPreFilter filter = new SimplePropertyPreFilter(WxOfficialaccounts.class,
-                "id", "name", "appid", "creattime");
+                "id", "name", "appid", "appsecret", "tel", "createtimeStr");
 
         String hospitalJson = JSON.toJSONString(result, filter,
                 SerializerFeature.WriteMapNullValue,
@@ -103,7 +106,7 @@ public class HospitalController extends BaseController {
     public String insert(HttpSession session, WxOfficialaccounts hospitalInfo) {
 
         String usercode = getUserCodeFromSession(session);
-        hospitalInfo.setCreatper(usercode);
+        hospitalInfo.setCreateper(usercode);
 
         try {
             hospitalService.save(hospitalInfo);
@@ -119,8 +122,10 @@ public class HospitalController extends BaseController {
      * wanggang
      * 2017-7-18 09:53:20
      */
-    @RequestMapping(value = "/toEdit", method = RequestMethod.POST)
-    public String toEdit() {
+    @RequestMapping(value = "/toEdit", method = RequestMethod.GET)
+    public String toEdit(Map<String, Object> map) {
+
+        map.put("name", "张三");
 
         return "hospital/edit";
     }

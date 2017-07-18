@@ -9,8 +9,8 @@
 		<result column="appId" property="appid" jdbcType="VARCHAR" />
 		<result column="appSecret" property="appsecret" jdbcType="VARCHAR" />
 		<result column="tel" property="tel" jdbcType="VARCHAR" />
-		<result column="creatTime" property="creattime" jdbcType="DATE" />
-		<result column="creatPer" property="creatper" jdbcType="VARCHAR" />
+		<result column="createTime" property="createtime" jdbcType="DATE" />
+		<result column="createPer" property="createper" jdbcType="VARCHAR" />
 		<result column="delTag" property="deltag" jdbcType="INTEGER" />
 	</resultMap>
 
@@ -21,7 +21,7 @@
 	<!-- 查询分页列表 -->
 	<select id="findPage" resultMap="BaseResultMap" parameterType="java.util.Map">
 		SELECT
-			id,hosId,NAME,appid,appSecret,tel,creatTime,creatPer,delTag
+			id,hosId,NAME,appid,appSecret,tel,createTime,createPer,delTag
 		FROM
 			wx_officialaccounts
 		<where>
@@ -30,7 +30,7 @@
             </if>
         </where>
 		ORDER BY
-			creatTime
+			createTime
 		LIMIT #{pageStart}, #{pageSize}
 	</select>
     <select id="findPageCount" resultType="java.lang.Integer" parameterType="java.util.Map">
@@ -49,11 +49,11 @@
 	<insert id="insert" parameterType="com.jfsoft.model.WxOfficialaccounts" >
 		insert into wx_officialaccounts (ID, hosId, name,
 		appId, appSecret, tel,
-		creatTime, creatPer, delTag
+		createTime, createPer, delTag
 		)
 		values (#{id,jdbcType=INTEGER}, #{hosid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
 		#{appid,jdbcType=VARCHAR}, #{appsecret,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR},
-		#{creattime,jdbcType=DATE}, #{creatper,jdbcType=VARCHAR}, #{deltag,jdbcType=INTEGER}
+		#{createtime,jdbcType=DATE}, #{createper,jdbcType=VARCHAR}, #{deltag,jdbcType=INTEGER}
 		)
 	</insert>
 

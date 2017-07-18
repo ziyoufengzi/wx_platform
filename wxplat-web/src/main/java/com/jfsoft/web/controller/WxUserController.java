@@ -166,8 +166,12 @@ public class WxUserController {
     @ApiOperation(value="发送短信验证码", notes="传入tel发送验证码")
     @ApiImplicitParam(name = "tel", value = "电话号码", required = true, dataType = "Long")
     public String sendCode(String tel) throws UnsupportedEncodingException {
-
-        int code =  new Random().nextInt(999999);
+        //生成6位验证码
+        String code;
+        while (true){
+            code =  new Random().nextInt(999999) + "";
+            if(code.length()==6) break;
+        }
         String str = "您的验证码是"+code+",如非本人操作请忽略本短信【金风易通】";
 
         String msg = URLEncoder.encode(str,"gb2312");
@@ -181,7 +185,7 @@ public class WxUserController {
 
         map.put("code",code);
         map.put("status", Constants.RETURN_STATUS_SUCCESS);
-        map.put("data","成功发送验证码至"+tel);
+        map.put("data","成功发送验证码至" + tel);
         return JSON.toJSONString(map);
     }
 }
