@@ -1,0 +1,35 @@
+<div style="margin: 15px;">
+	<form action="insert" class="layui-form" method="post">
+		<div class="layui-form-item">
+			<label class="layui-form-label">医院名称</label>
+			<div class="layui-input-block">
+				<input type="text" name="name" lay-verify="name" placeholder="请输入医院名称" autocomplete="off" class="layui-input" />
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">医院编码</label>
+			<div class="layui-input-block">
+				<input type="text" name="hosid" lay-verify="hosid" placeholder="请输入医院编码" autocomplete="off" class="layui-input" />
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">AppId</label>
+			<div class="layui-input-block">
+				<input type="text" name="appid" lay-verify="required" placeholder="请输入AppId" autocomplete="off" class="layui-input" />
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">AppSecret</label>
+			<div class="layui-input-block">
+				<input type="text" name="appsecret" lay-verify="required" placeholder="请输入AppSecret" autocomplete="off" class="layui-input" />
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">医院电话</label>
+			<div class="layui-input-block">
+				<input type="text" name="tel" lay-verify="number" placeholder="请输入医院电话" autocomplete="off" class="layui-input" />
+			</div>
+		</div>
+		<button lay-filter="edit" lay-submit="" style="display: none;"></button>
+	</form>
+</div>

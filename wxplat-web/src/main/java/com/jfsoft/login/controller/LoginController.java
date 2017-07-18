@@ -1,11 +1,13 @@
 package com.jfsoft.login.controller;
 
+import base.BaseController;
 import com.jfsoft.utils.Constants;
 import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,7 +25,7 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/login")
 @Api(value = "/login", description = "登录，验证用户权限")
-public class LoginController {
+public class LoginController extends BaseController {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -44,11 +46,18 @@ public class LoginController {
      * 2017-7-13 15:14:16
      */
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public String signIn(Map<String,Object> map, String username, String password) {
+    public String signIn(HttpSession session, ModelMap model, String username, String password) {
 
-        map.put("username", username);
+        if("admin".equals(username) && "admin".equals(password)) {
 
-        return "index";
+            model.put("username", username);
+            saveUserCodeToSession(session, "1");
+            saveUserNameToSession(session, "admin");
+
+            return "index";
+        }
+
+        return "loginSystem";
     }
 
     /**

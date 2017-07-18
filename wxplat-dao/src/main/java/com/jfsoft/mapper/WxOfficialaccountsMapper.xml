@@ -45,4 +45,16 @@
         </where>
     </select>
 
+	<!-- 新增 -->
+	<insert id="insert" parameterType="com.jfsoft.model.WxOfficialaccounts" >
+		insert into wx_officialaccounts (ID, hosId, name,
+		appId, appSecret, tel,
+		creatTime, creatPer, delTag
+		)
+		values (#{id,jdbcType=INTEGER}, #{hosid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+		#{appid,jdbcType=VARCHAR}, #{appsecret,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR},
+		#{creattime,jdbcType=DATE}, #{creatper,jdbcType=VARCHAR}, #{deltag,jdbcType=INTEGER}
+		)
+	</insert>
+
 </mapper>

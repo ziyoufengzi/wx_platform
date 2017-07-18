@@ -1,5 +1,6 @@
 package com.jfsoft.hospital.controller;
 
+import base.BaseController;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,7 +29,7 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/hos")
 @Api(value = "/hos", description = "医院信息管理")
-public class HospitalController {
+public class HospitalController extends BaseController {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -84,6 +86,43 @@ public class HospitalController {
                 SerializerFeature.WriteNullStringAsEmpty);
 
         return hospitalJson;
+    }
+
+    /**
+     * 跳转到新增页面
+     * wanggang
+     * 2017-7-18 09:53:20
+     */
+    @RequestMapping(value = "/toAdd", method = RequestMethod.GET)
+    public String toAdd() {
+
+        return "hospital/add";
+    }
+
+    @RequestMapping(value = "/insert", method = RequestMethod.POST)
+    public String insert(HttpSession session, WxOfficialaccounts hospitalInfo) {
+
+        String usercode = getUserCodeFromSession(session);
+        hospitalInfo.setCreatper(usercode);
+
+        try {
+            hospitalService.save(hospitalInfo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "redirect:list";
+    }
+
+    /**
+     * 跳转到编辑页面
+     * wanggang
+     * 2017-7-18 09:53:20
+     */
+    @RequestMapping(value = "/toEdit", method = RequestMethod.POST)
+    public String toEdit() {
+
+        return "hospital/edit";
     }
 
 }

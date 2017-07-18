@@ -29,4 +29,12 @@ public interface IHospitalService {
      */
     public int findHospitalInfoCount(String hospitalName) throws Exception;
 
+    /**
+     * 新增医院信息
+     * @author wanggang
+     * 2017/7/18 10:52
+     * @param
+     */
+    public int save(WxOfficialaccounts wxOfficialaccounts) throws Exception;
+
 }

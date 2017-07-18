@@ -40,4 +40,12 @@ public interface WxOfficialaccountsMapper {
      */
     int findPageCount(Map<String, Object> params);
 
+    /**
+     * 新增医院信息
+     * @author wanggang
+     * 2017/7/18 10:49
+     * @param
+     */
+    int insert(WxOfficialaccounts record);
+
 }

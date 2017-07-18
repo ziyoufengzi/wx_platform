@@ -3,10 +3,12 @@ package com.jfsoft.hospital.service.impl;
 import com.jfsoft.hospital.service.IHospitalService;
 import com.jfsoft.mapper.WxOfficialaccountsMapper;
 import com.jfsoft.model.WxOfficialaccounts;
+import com.jfsoft.utils.Constants;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,6 +50,16 @@ public class HospitalServiceImpl implements IHospitalService {
         }
 
         int count = wxOfficialaccountsMapper.findPageCount(params);
+
+        return count;
+    }
+
+    public int save(WxOfficialaccounts wxOfficialaccounts) throws Exception {
+
+        wxOfficialaccounts.setCreattime(new Date());
+        wxOfficialaccounts.setDeltag(Integer.parseInt(Constants.IS_DELETE_FALSE));
+
+        int count = wxOfficialaccountsMapper.insert(wxOfficialaccounts);
 
         return count;
     }

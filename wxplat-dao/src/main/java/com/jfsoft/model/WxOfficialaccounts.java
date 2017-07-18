@@ -7,6 +7,7 @@
  */
 package com.jfsoft.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -49,7 +50,7 @@ public class WxOfficialaccounts {
     /**
      * 创建时间
      */
-    private String creattime;
+    private Date creattime;
 
     /**
      * 创建人
@@ -125,11 +126,11 @@ public class WxOfficialaccounts {
         this.deltag = deltag;
     }
 
-    public String getCreattime() {
+    public Date getCreattime() {
         return creattime;
     }
 
-    public void setCreattime(String creattime) {
+    public void setCreattime(Date creattime) {
         this.creattime = creattime;
     }
 
