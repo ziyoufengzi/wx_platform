@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a25370a3-4a00-426d-9b7d-39b219914a1d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-dao/src/main/java/com/jfsoft/mapper/WxOfficialaccountsMapper.xml" afterPath="$PROJECT_DIR$/wxplat-dao/src/main/java/com/jfsoft/mapper/WxOfficialaccountsMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-dao/src/main/java/com/jfsoft/model/WxOfficialaccounts.java" afterPath="$PROJECT_DIR$/wxplat-dao/src/main/java/com/jfsoft/model/WxOfficialaccounts.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-dao/target/classes/com/jfsoft/mapper/WxOfficialaccountsMapper.xml" afterPath="$PROJECT_DIR$/wxplat-dao/target/classes/com/jfsoft/mapper/WxOfficialaccountsMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-service/src/main/java/com/jfsoft/hospital/service/impl/HospitalServiceImpl.java" afterPath="$PROJECT_DIR$/wxplat-service/src/main/java/com/jfsoft/hospital/service/impl/HospitalServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-web/src/main/java/com/jfsoft/hospital/controller/HospitalController.java" afterPath="$PROJECT_DIR$/wxplat-web/src/main/java/com/jfsoft/hospital/controller/HospitalController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-web/src/main/java/com/jfsoft/web/controller/WxUserController.java" afterPath="$PROJECT_DIR$/wxplat-web/src/main/java/com/jfsoft/web/controller/WxUserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-web/src/main/resources/templates/hospital/edit.html" afterPath="$PROJECT_DIR$/wxplat-web/src/main/resources/templates/hospital/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-web/src/main/resources/templates/hospital/table.html" afterPath="$PROJECT_DIR$/wxplat-web/src/main/resources/templates/hospital/table.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-web/src/main/resources/templates/index.html" afterPath="$PROJECT_DIR$/wxplat-web/src/main/resources/templates/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-web/target/classes/templates/hospital/edit.html" afterPath="$PROJECT_DIR$/wxplat-web/target/classes/templates/hospital/edit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-web/target/classes/templates/hospital/table.html" afterPath="$PROJECT_DIR$/wxplat-web/target/classes/templates/hospital/table.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxplat-web/target/classes/templates/index.html" afterPath="$PROJECT_DIR$/wxplat-web/target/classes/templates/index.html" />
@@ -2167,11 +2159,18 @@
       <option name="project" value="LOCAL" />
       <updated>1500356108215</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="完成模板推送模板消息和短信验证码接口">
+      <created>1500370896492</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1500370896492</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45635000" />
+    <option name="totallyTimeSpent" value="45661000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -2489,6 +2488,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
