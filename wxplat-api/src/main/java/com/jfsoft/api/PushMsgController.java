@@ -15,6 +15,7 @@ import me.chanjar.weixin.common.bean.WxAccessToken;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -51,7 +52,7 @@ public class PushMsgController {
     @RequestMapping(value = "", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     @ApiOperation(value="发送模板消息", notes="根据传入模板参数发送模板消息")
-    public String sendTemplateMessage(String info) {
+    public String sendTemplateMessage(String info, MultipartFile file) {
 
         //appId、openId去掉，改为传hospitalId，根据hospitalId查询appId；openId改为tel
         //appId 医院公众号ID

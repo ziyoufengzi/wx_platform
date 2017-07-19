@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jfsoft.mapper.WxReportcardMapper" >
+	
+	<resultMap id="BaseResultMap" type="com.jfsoft.model.WxReportcard" >
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="hospital_id" property="hospitalId" jdbcType="INTEGER" />
+		<result column="test_no" property="testNo" jdbcType="VARCHAR" />
+		<result column="report_name" property="reportName" jdbcType="VARCHAR" />
+		<result column="report_time" property="reportTime" jdbcType="TIMESTAMP" />
+		<result column="report_content" property="reportContent" jdbcType="VARCHAR" />
+		<result column="report_imgurl" property="reportImgurl" jdbcType="VARCHAR" />
+		<result column="report_type" property="reportType" jdbcType="CHAR" />
+		<result column="del_flag" property="delFlag" jdbcType="CHAR" />
+	</resultMap>
+
+	<sql id="Base_Column_List" >
+		id, hospital_id, test_no, report_name, report_time, report_content, report_imgurl, 
+		report_type, del_flag
+	</sql>
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+		select 
+		<include refid="Base_Column_List" />
+		from wx_reportcard
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+		delete from wx_reportcard
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+
+	<insert id="insert" parameterType="com.jfsoft.model.WxReportcard" >
+		insert into wx_reportcard (id, hospital_id, test_no, 
+			report_name, report_time, report_content, 
+			report_imgurl, report_type, del_flag
+			)
+		values (#{id,jdbcType=INTEGER}, #{hospitalId,jdbcType=INTEGER}, #{testNo,jdbcType=VARCHAR}, 
+			#{reportName,jdbcType=VARCHAR}, #{reportTime,jdbcType=TIMESTAMP}, #{reportContent,jdbcType=VARCHAR}, 
+			#{reportImgurl,jdbcType=VARCHAR}, #{reportType,jdbcType=CHAR}, #{delFlag,jdbcType=CHAR}
+			)
+	</insert>
+
+	<insert id="insertSelective" parameterType="com.jfsoft.model.WxReportcard" >
+		insert into wx_reportcard
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="id != null" >
+				id,
+			</if>
+			<if test="hospitalId != null" >
+				hospital_id,
+			</if>
+			<if test="testNo != null" >
+				test_no,
+			</if>
+			<if test="reportName != null" >
+				report_name,
+			</if>
+			<if test="reportTime != null" >
+				report_time,
+			</if>
+			<if test="reportContent != null" >
+				report_content,
+			</if>
+			<if test="reportImgurl != null" >
+				report_imgurl,
+			</if>
+			<if test="reportType != null" >
+				report_type,
+			</if>
+			<if test="delFlag != null" >
+				del_flag,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="id != null" >
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="hospitalId != null" >
+				#{hospitalId,jdbcType=INTEGER},
+			</if>
+			<if test="testNo != null" >
+				#{testNo,jdbcType=VARCHAR},
+			</if>
+			<if test="reportName != null" >
+				#{reportName,jdbcType=VARCHAR},
+			</if>
+			<if test="reportTime != null" >
+				#{reportTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="reportContent != null" >
+				#{reportContent,jdbcType=VARCHAR},
+			</if>
+			<if test="reportImgurl != null" >
+				#{reportImgurl,jdbcType=VARCHAR},
+			</if>
+			<if test="reportType != null" >
+				#{reportType,jdbcType=CHAR},
+			</if>
+			<if test="delFlag != null" >
+				#{delFlag,jdbcType=CHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<update id="updateByPrimaryKeySelective" parameterType="com.jfsoft.model.WxReportcard" >
+		update wx_reportcard
+		<set >
+			<if test="hospitalId != null" >
+				hospital_id = #{hospitalId,jdbcType=INTEGER},
+			</if>
+			<if test="testNo != null" >
+				test_no = #{testNo,jdbcType=VARCHAR},
+			</if>
+			<if test="reportName != null" >
+				report_name = #{reportName,jdbcType=VARCHAR},
+			</if>
+			<if test="reportTime != null" >
+				report_time = #{reportTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="reportContent != null" >
+				report_content = #{reportContent,jdbcType=VARCHAR},
+			</if>
+			<if test="reportImgurl != null" >
+				report_imgurl = #{reportImgurl,jdbcType=VARCHAR},
+			</if>
+			<if test="reportType != null" >
+				report_type = #{reportType,jdbcType=CHAR},
+			</if>
+			<if test="delFlag != null" >
+				del_flag = #{delFlag,jdbcType=CHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<update id="updateByPrimaryKey" parameterType="com.jfsoft.model.WxReportcard" >
+		update wx_reportcard
+		set hospital_id = #{hospitalId,jdbcType=INTEGER},
+			test_no = #{testNo,jdbcType=VARCHAR},
+			report_name = #{reportName,jdbcType=VARCHAR},
+			report_time = #{reportTime,jdbcType=TIMESTAMP},
+			report_content = #{reportContent,jdbcType=VARCHAR},
+			report_imgurl = #{reportImgurl,jdbcType=VARCHAR},
+			report_type = #{reportType,jdbcType=CHAR},
+			del_flag = #{delFlag,jdbcType=CHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+</mapper>
