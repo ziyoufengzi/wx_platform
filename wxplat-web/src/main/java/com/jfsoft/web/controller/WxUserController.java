@@ -74,8 +74,7 @@ public class WxUserController {
         String requestUrl = getopenId_url.replace("APPID", appId).replace("SECRET", appSecret).replace("CODE", code);
         JSONObject jsonObject = WeixinUtil.httpRequest(requestUrl, "POST", "");
         String openId = jsonObject.getJSONObject("openid").toJSONString();
-        //查询历史报告单
-        //返回报告单路径
+
     }
 
     /**
@@ -114,7 +113,7 @@ public class WxUserController {
         }else {
             WxUser wxUser = new WxUser();
             wxUser.setAppid(appId);
-            wxUser.setTel(tel);
+            wxUser.setTel(wxUser.getTel()+","+tel);
             wxUser.setOpenId(openId);
             int b = wxUserService.updateTel(wxUser);
             map.put("status", Constants.RETURN_STATUS_SUCCESS);

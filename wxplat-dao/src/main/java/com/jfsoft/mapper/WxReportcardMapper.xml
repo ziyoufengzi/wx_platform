@@ -26,11 +26,6 @@
 		where id = #{id,jdbcType=INTEGER}
 	</select>
 
-	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-		delete from wx_reportcard
-		where id = #{id,jdbcType=INTEGER}
-	</delete>
-
 	<insert id="insert" parameterType="com.jfsoft.model.WxReportcard" >
 		insert into wx_reportcard (id, hospital_id, test_no, 
 			report_name, report_time, report_content, 
@@ -104,26 +99,18 @@
 		</trim>
 	</insert>
 
-	<update id="updateByPrimaryKeySelective" parameterType="com.jfsoft.model.WxReportcard" >
-		update wx_reportcard
-		<set >
+	<!-- 分页查询报告单 -->
+	<select id="findPage" resultMap="BaseResultMap" parameterType="java.util.Map">
+		SELECT
+			ID,report_name,report_time
+		FROM
+			wx_reportcard
+		<where>
 			<if test="hospitalId != null" >
 				hospital_id = #{hospitalId,jdbcType=INTEGER},
 			</if>
 			<if test="testNo != null" >
 				test_no = #{testNo,jdbcType=VARCHAR},
-			</if>
-			<if test="reportName != null" >
-				report_name = #{reportName,jdbcType=VARCHAR},
-			</if>
-			<if test="reportTime != null" >
-				report_time = #{reportTime,jdbcType=TIMESTAMP},
-			</if>
-			<if test="reportContent != null" >
-				report_content = #{reportContent,jdbcType=VARCHAR},
-			</if>
-			<if test="reportImgurl != null" >
-				report_imgurl = #{reportImgurl,jdbcType=VARCHAR},
 			</if>
 			<if test="reportType != null" >
 				report_type = #{reportType,jdbcType=CHAR},
@@ -131,21 +118,10 @@
 			<if test="delFlag != null" >
 				del_flag = #{delFlag,jdbcType=CHAR},
 			</if>
-		</set>
-		where id = #{id,jdbcType=INTEGER}
-	</update>
-
-	<update id="updateByPrimaryKey" parameterType="com.jfsoft.model.WxReportcard" >
-		update wx_reportcard
-		set hospital_id = #{hospitalId,jdbcType=INTEGER},
-			test_no = #{testNo,jdbcType=VARCHAR},
-			report_name = #{reportName,jdbcType=VARCHAR},
-			report_time = #{reportTime,jdbcType=TIMESTAMP},
-			report_content = #{reportContent,jdbcType=VARCHAR},
-			report_imgurl = #{reportImgurl,jdbcType=VARCHAR},
-			report_type = #{reportType,jdbcType=CHAR},
-			del_flag = #{delFlag,jdbcType=CHAR}
-		where id = #{id,jdbcType=INTEGER}
-	</update>
+		</where>
+		ORDER BY
+		 	report_time DESC
+		LIMIT #{pageStart}, #{pageSize}
+	</select>
 
 </mapper>

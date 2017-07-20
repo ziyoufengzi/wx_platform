@@ -31,4 +31,12 @@ public interface WxUserMapper {
     int selectCountByOpenId(String openId);
 
     int updateTel(WxUser wxUser);
+
+    /**
+     * 根据手机号查询用户详情
+     * wanggang
+     * 2017-7-19 14:20:42
+     */
+    WxUser selectByTel(String tel);
+
 }

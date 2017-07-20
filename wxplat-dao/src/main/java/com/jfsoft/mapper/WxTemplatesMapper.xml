@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jfsoft.mapper.WxTemplatesMapper" >
+
+	<resultMap id="BaseResultMap" type="com.jfsoft.model.WxTemplates" >
+		<result column="hospitalId" property="hospitalid" jdbcType="VARCHAR" />
+		<result column="appId" property="appid" jdbcType="VARCHAR" />
+		<result column="templateId" property="templateid" jdbcType="VARCHAR" />
+		<result column="tempType" property="temptype" jdbcType="INTEGER" />
+	</resultMap>
+
+	<sql id="Base_Column_List" >
+		hospitalId, appId, templateId, tempType
+	</sql>
+
+	<insert id="insert" parameterType="com.jfsoft.model.WxTemplates" >
+		insert into wx_templates (hospitalId, appId, templateId, 
+			tempType)
+		values (#{hospitalid,jdbcType=VARCHAR}, #{appid,jdbcType=VARCHAR}, #{templateid,jdbcType=VARCHAR}, 
+			#{temptype,jdbcType=INTEGER})
+	</insert>
+
+	<insert id="insertSelective" parameterType="com.jfsoft.model.WxTemplates" >
+		insert into wx_templates
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="hospitalid != null" >
+				hospitalId,
+			</if>
+			<if test="appid != null" >
+				appId,
+			</if>
+			<if test="templateid != null" >
+				templateId,
+			</if>
+			<if test="temptype != null" >
+				tempType,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="hospitalid != null" >
+				#{hospitalid,jdbcType=VARCHAR},
+			</if>
+			<if test="appid != null" >
+				#{appid,jdbcType=VARCHAR},
+			</if>
+			<if test="templateid != null" >
+				#{templateid,jdbcType=VARCHAR},
+			</if>
+			<if test="temptype != null" >
+				#{temptype,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 查询微信模板详情 -->
+	<select id="getDetail" resultMap="BaseResultMap" parameterType="java.util.Map">
+		SELECT
+			templateId
+		FROM
+			wx_templates
+		WHERE
+			hospitalId=#{hospitalId} AND appId=#{appId} AND tempType=#{tempType}
+	</select>
+
+</mapper>

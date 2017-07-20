@@ -178,4 +178,15 @@
 		SET tel = #{tel,jdbcType=VARCHAR}
 		WHERE openId = #{openId,jdbcType=VARCHAR}
 	</update>
+
+	<!-- 查询微信用户的详细信息 -->
+	<select id="selectByTel" resultMap="BaseResultMap" parameterType="java.lang.String" >
+		SELECT
+			id,appid,openid,NAME,createtime
+		FROM
+			wx_user
+		WHERE
+			tel=#{tel}
+	</select>
+
 </mapper>

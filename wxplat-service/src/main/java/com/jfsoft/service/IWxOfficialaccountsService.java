@@ -15,4 +15,12 @@ public interface IWxOfficialaccountsService {
      * @return
      */
     WxOfficialaccounts selectAppSecretByAppId(String appId);
+
+    /**
+     * 查询医院详情
+     * wanggang
+     * 2017-7-19 14:12:11
+     */
+    public WxOfficialaccounts getDetail(String hosId) throws Exception;
+
 }

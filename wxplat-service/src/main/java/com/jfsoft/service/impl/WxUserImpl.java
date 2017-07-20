@@ -18,18 +18,20 @@ public class WxUserImpl implements IWxUserService {
     @Autowired
     private WxUserMapper wxUserMapper;
 
-    @Override
     public int insert(WxUser record) {
         return wxUserMapper.insert(record);
     }
 
-    @Override
     public int selectCountByOpenId(String openId) {
         return wxUserMapper.selectCountByOpenId(openId);
     }
 
-    @Override
     public int updateTel(WxUser wxUser) {
         return wxUserMapper.updateTel(wxUser);
     }
+
+    public WxUser getDetail(String tel) throws Exception {
+        return wxUserMapper.selectByTel(tel);
+    }
+
 }

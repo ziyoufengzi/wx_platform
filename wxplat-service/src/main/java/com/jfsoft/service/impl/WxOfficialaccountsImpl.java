@@ -22,4 +22,10 @@ public class WxOfficialaccountsImpl implements IWxOfficialaccountsService {
     public WxOfficialaccounts selectAppSecretByAppId(String appId) {
         return wxOfficialaccountsMapper.selectAppSecretByAppId(appId);
     }
+
+    public WxOfficialaccounts getDetail(String hosId) throws Exception {
+
+        return wxOfficialaccountsMapper.selectByHosId(hosId);
+    }
+
 }

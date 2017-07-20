@@ -43,6 +43,8 @@ public class WxReportcard {
      */
     private Date reportTime;
 
+    private String reportTimeStr;
+
     /**
      * 报告单内容
      */
@@ -135,4 +137,11 @@ public class WxReportcard {
         this.delFlag = delFlag == null ? null : delFlag.trim();
     }
 
+    public String getReportTimeStr() {
+        return reportTimeStr;
+    }
+
+    public void setReportTimeStr(String reportTimeStr) {
+        this.reportTimeStr = reportTimeStr;
+    }
 }

@@ -15,4 +15,12 @@ public interface IWxUserService {
     int selectCountByOpenId(String openId);
 
     int updateTel(WxUser wxUser);
+
+    /**
+     * 查询微信用户详情
+     * wanggang
+     * 2017-7-19 14:22:01
+     */
+    public WxUser getDetail(String tel) throws Exception;
+
 }
