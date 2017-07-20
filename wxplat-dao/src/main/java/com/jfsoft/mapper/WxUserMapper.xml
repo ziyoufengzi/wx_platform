@@ -178,4 +178,13 @@
 		SET tel = #{tel,jdbcType=VARCHAR}
 		WHERE openId = #{openId,jdbcType=VARCHAR}
 	</update>
+
+
+
+	<select id="selectUserInfoByOpenId" parameterType="java.lang.String" resultType="com.jfsoft.model.WxUser">
+		SELECT * FROM  wx_user WHERE openId = #{openId,jdbcType=VARCHAR}
+	</select>
+
+
+
 </mapper>

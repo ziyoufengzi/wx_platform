@@ -14,10 +14,12 @@
         var code = getQueryString("code");
         var appId = getQueryString("state");
 
-        alert(appId);
+        //alert(appId);
         var tel = window.localStorage['tel'];
+        window.location="user/index?code="+code+"&appId="+appId;
+        alert(tel);
         if(null!=tel){
-            window.location="报告查询页面";  //需要传code,appId
+            window.location="index?code="+code+"&appId="+appId;  //需要传code,appId
         }else {
             window.location="登录页面";     //需要传code和tel,appId
         }

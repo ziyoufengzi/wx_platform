@@ -15,4 +15,6 @@ public interface IWxUserService {
     int selectCountByOpenId(String openId);
 
     int updateTel(WxUser wxUser);
+
+    WxUser selectUserInfoByOpenId(String openId);
 }

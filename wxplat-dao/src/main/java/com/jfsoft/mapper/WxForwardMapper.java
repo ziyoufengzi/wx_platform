@@ -28,4 +28,7 @@ public interface WxForwardMapper {
 
     int updateByPrimaryKey(WxForward record);
 
+    int delForward(String openId);
+
+    int updateForWard(WxForward wxForward);
 }

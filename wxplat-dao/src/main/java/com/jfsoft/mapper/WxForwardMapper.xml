@@ -123,4 +123,14 @@
 		where ID = #{id,jdbcType=INTEGER}
 	</update>
 
+	<delete id="delForward" parameterType="java.lang.String">
+		DELETE FROM wx_forward WHERE openId= #{openid,jdbcType=VARCHAR}
+	</delete>
+
+	<update id="updateForWard" parameterType="com.jfsoft.model.WxUser" >
+		UPDATE  wx_forward
+		SET tel = #{tel,jdbcType=VARCHAR},name = #{name,jdbcType=VARCHAR}
+		WHERE openId = #{openId,jdbcType=VARCHAR}
+	</update>
+
 </mapper>

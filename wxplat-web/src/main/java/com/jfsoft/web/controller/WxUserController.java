@@ -76,6 +76,7 @@ public class WxUserController {
         String openId = jsonObject.getJSONObject("openid").toJSONString();
         //查询历史报告单
         //返回报告单路径
+
     }
 
     /**
@@ -131,7 +132,10 @@ public class WxUserController {
     @RequestMapping(value = "/getUserInfo", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public String getUserInfo(@RequestParam String openId){
-        return "";
+        WxUser wxUser = wxUserService.selectUserInfoByOpenId(openId);
+        map.put("status", Constants.RETURN_STATUS_SUCCESS);
+        map.put("data", wxUser);
+        return JSON.toJSONString(map);
     }
 
     /**
@@ -188,4 +192,5 @@ public class WxUserController {
         map.put("data","成功发送验证码至" + tel);
         return JSON.toJSONString(map);
     }
+
 }
