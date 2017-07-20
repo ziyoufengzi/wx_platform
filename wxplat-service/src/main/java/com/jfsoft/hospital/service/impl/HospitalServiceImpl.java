@@ -32,6 +32,7 @@ public class HospitalServiceImpl implements IHospitalService {
         if(!StringUtils.isBlank(hospitalName)) {
             params.put("hospitalName", hospitalName.trim());
         }
+        params.put("delTag", Constants.IS_DELETE_FALSE);
         int pageNumInt = Integer.parseInt(pageNum);
         int pageSizeInt = Integer.parseInt(pageSize);
         params.put("pageStart", (pageNumInt - 1)*pageSizeInt);
@@ -56,6 +57,7 @@ public class HospitalServiceImpl implements IHospitalService {
         if(!StringUtils.isBlank(hospitalName)) {
             params.put("hospitalName", hospitalName.trim());
         }
+        params.put("delTag", Constants.IS_DELETE_FALSE);
 
         int count = wxOfficialaccountsMapper.findPageCount(params);
 
@@ -70,6 +72,21 @@ public class HospitalServiceImpl implements IHospitalService {
         int count = wxOfficialaccountsMapper.insert(wxOfficialaccounts);
 
         return count;
+    }
+
+    public WxOfficialaccounts getDetail(String hosId) throws Exception {
+
+        return wxOfficialaccountsMapper.selectByHosId(hosId);
+    }
+
+    public int update(WxOfficialaccounts wxOfficialaccounts) throws Exception {
+
+        return wxOfficialaccountsMapper.updateById(wxOfficialaccounts);
+    }
+
+    public int delete(String hosId) throws Exception {
+
+        return wxOfficialaccountsMapper.deleteByHosId(hosId);
     }
 
 }

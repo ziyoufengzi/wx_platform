@@ -19,7 +19,7 @@
 		select
 			id,hosId,name,appId,appSecret,tel,createTime
 		from wx_officialaccounts
-		where hosId = #{id}
+		where hosId = #{id} and delTag='0'
 	</select>
 
     <select id="selectAppSecretByAppId" resultType="com.jfsoft.model.WxOfficialaccounts" parameterType="java.lang.String" >
@@ -34,7 +34,10 @@
 			wx_officialaccounts
 		<where>
             <if test="hospitalName!='' and hospitalName!=null">
-                AND NAME LIKE #{hospitalName}
+                AND NAME LIKE CONCAT('%', #{hospitalName},'%')
+            </if>
+            <if test="delTag!='' and delTag!=null">
+                AND delTag=#{delTag}
             </if>
         </where>
 		ORDER BY
@@ -48,7 +51,10 @@
         wx_officialaccounts
         <where>
             <if test="hospitalName!='' and hospitalName!=null">
-                AND NAME LIKE #{hospitalName}
+                AND NAME LIKE CONCAT('%', #{hospitalName},'%')
+            </if>
+            <if test="delTag!='' and delTag!=null">
+                AND delTag=#{delTag}
             </if>
         </where>
     </select>
@@ -64,5 +70,30 @@
 		#{createtime,jdbcType=DATE}, #{createper,jdbcType=VARCHAR}, #{deltag,jdbcType=INTEGER}
 		)
 	</insert>
+
+	<!-- 更新医院信息 -->
+	<update id="updateById" parameterType="com.jfsoft.model.WxOfficialaccounts" >
+		update wx_officialaccounts
+		<set >
+			<if test="name != null" >
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="appid != null" >
+				appId = #{appid,jdbcType=VARCHAR},
+			</if>
+			<if test="appsecret != null" >
+				appSecret = #{appsecret,jdbcType=VARCHAR},
+			</if>
+			<if test="tel != null" >
+				tel = #{tel,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where hosId = #{hosid,jdbcType=VARCHAR}
+	</update>
+
+    <!-- 更新标识位来删除 -->
+    <update id="deleteByHosId" parameterType="java.lang.String">
+        UPDATE wx_officialaccounts SET delTag='1' WHERE hosId=#{hosid}
+    </update>
 
 </mapper>

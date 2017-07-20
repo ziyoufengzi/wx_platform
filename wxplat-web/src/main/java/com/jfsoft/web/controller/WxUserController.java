@@ -11,7 +11,8 @@ import com.jfsoft.utils.HttpUtil;
 import com.jfsoft.utils.WeixinUtil;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -40,7 +41,7 @@ public class WxUserController {
 
     public final static String send_str = "account=ACCOUNT&pwd=PWD&product=PRODUCT&mobile=TEL&message=MESSAGE";
 
-    private static Logger logger = Logger.getLogger(WxUserController.class);
+    private static Logger logger = LoggerFactory.getLogger(WxUserController.class);
 
     private Map<String, Object> map = new HashMap<String, Object>();
 

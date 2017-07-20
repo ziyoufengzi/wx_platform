@@ -58,7 +58,7 @@ public class HospitalController extends BaseController {
      */
     @ResponseBody
     @RequestMapping(value = "/listDatas", method = RequestMethod.POST)
-    public String getJsonData(String hospitalName, String pageIndex, String pageSize) {
+    public String getJsonData(String hosName, String pageIndex, String pageSize) {
 
         logger.debug("查询医院信息列表");
 
@@ -68,8 +68,8 @@ public class HospitalController extends BaseController {
         int count = 0;
 
         try {
-            hospitalInfoList = hospitalService.findHospitalInfoList(hospitalName, pageIndex, pageSize);
-            count = hospitalService.findHospitalInfoCount(hospitalName);
+            hospitalInfoList = hospitalService.findHospitalInfoList(hosName, pageIndex, pageSize);
+            count = hospitalService.findHospitalInfoCount(hosName);
 
             result.put("list", hospitalInfoList);
             result.put("count", count);
@@ -81,7 +81,7 @@ public class HospitalController extends BaseController {
         result.put("message", "获取成功");
 
         SimplePropertyPreFilter filter = new SimplePropertyPreFilter(WxOfficialaccounts.class,
-                "id", "name", "appid", "appsecret", "tel", "createtimeStr");
+                "id", "hosid", "name", "appid", "appsecret", "tel", "createtimeStr");
 
         String hospitalJson = JSON.toJSONString(result, filter,
                 SerializerFeature.WriteMapNullValue,
@@ -102,6 +102,11 @@ public class HospitalController extends BaseController {
         return "hospital/add";
     }
 
+    /**
+     * 新增医院信息
+     * wanggang
+     * 2017-7-20 11:58:05
+     */
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
     public String insert(HttpSession session, WxOfficialaccounts hospitalInfo) {
 
@@ -123,11 +128,52 @@ public class HospitalController extends BaseController {
      * 2017-7-18 09:53:20
      */
     @RequestMapping(value = "/toEdit", method = RequestMethod.GET)
-    public String toEdit(Map<String, Object> map) {
+    public String toEdit(Map<String, Object> map, String hosId) {
 
-        map.put("name", "张三");
+        try {
+            WxOfficialaccounts hospital = hospitalService.getDetail(hosId);
+            map.put("hos", hospital);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         return "hospital/edit";
+    }
+
+    /**
+     * 修改医院信息
+     * wanggang
+     * 2017-7-20 11:58:05
+     */
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String update(HttpSession session, WxOfficialaccounts hospitalInfo) {
+
+        try {
+            hospitalService.update(hospitalInfo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "redirect:list";
+    }
+
+    /**
+     * 删除医院信息
+     * wanggang
+     * 2017-7-20 13:35:48
+     */
+    @ResponseBody
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public int delete(String hosId) {
+
+        int deleteCount = 0;
+        try {
+            deleteCount = hospitalService.delete(hosId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return deleteCount;
     }
 
 }

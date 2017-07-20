@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<title>医院信息列表</title>
+		<link rel="stylesheet" th:href="@{/static/plugins/layui/css/layui.css}" media="all" />
+		<link rel="stylesheet" th:href="@{/static/css/global.css}" media="all" />
+		<link rel="stylesheet" th:href="@{/static/css/table.css}" />
+	</head>
+
+	<body>
+		<DIV class="main">
+			<div class="m_all20">
+				<blockquote class="clear layui-elem-quote">个人资料</blockquote>
+				<form action="" class="layui-form" method="post">
+					<center><table class="tables w_50 f15 hl45">
+						<tr><th>个人资料</th></tr>
+						<tr>
+							<td class="pl50">姓名：　<div class="layui-inline w_50"><input type="text" name="names" class="layui-input" value="管理员" /></div></td>
+						</tr>
+						<tr>
+							<td class="pl50">性别：　<div class="layui-inline w_50"><input type="text" name="sex" class="layui-input" value="男" /></div></td>
+						</tr>
+						<tr>
+							<td class="pl50">电话：　<div class="layui-inline w_50"><input type="text" name="tel" class="layui-input" value="admin" /></div></td>
+						</tr>
+						<tr>
+							<td class="pl50">身份证：<div class="layui-inline w_50"><input type="text" name="card" class="layui-input" value="" /></div></td>
+						</tr>
+						<tr>
+							<td class="pl50">职位：　<div class="layui-inline w_50"><input type="text" name="pid" class="layui-input" value="" /></div></td>
+						</tr>
+						<tr>
+							<td class="pl50">部门：　<div class="layui-inline w_50"><input type="text" name="sid" class="layui-input" value="1111212" /></div></td>
+						</tr>
+						<tr>
+							<td class="pl50">ＱＱ：　<div class="layui-inline w_30"><input type="text" name="qq" class="layui-input" value="" /></div>　(使用QQ头像)</td>
+						</tr>                <tr>
+						<td class="pl50">邮箱：　<div class="layui-inline w_30"><input type="text" name="email" class="layui-input" value="5927178@qq.cowm" /></div>　(通过邮箱取回遗忘的密码)</td>
+					</tr>                <tr>
+						<td align="center" class="p_all10"><button type="submit" class="layui-btn layui-btn-big layui-btn-normal white" name="into_class" onClick="return check(this.form)">保存</button>　　<button type="reset" class="layui-btn layui-btn-big layui-btn-warm white" name="reset" id="backid">清空</button></td>
+					</tr>
+					</table></center>
+				</form>
+			</div>
+		</DIV>
+	</body>
+
+</html>

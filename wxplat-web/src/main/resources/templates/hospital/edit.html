@@ -1,33 +1,33 @@
 <div style="margin: 15px;">
-	<form action="insert" class="layui-form" method="post">
+	<form action="update" class="layui-form" method="post">
 		<div class="layui-form-item">
 			<label class="layui-form-label">医院名称</label>
 			<div class="layui-input-block">
-				<input type="text" name="name" lay-verify="name"  autocomplete="off" class="layui-input" value="${name}" />
+				<input type="text" name="name" lay-verify="name" th:value="${hos.name}" placeholder="请输入医院名称" class="layui-input" />
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">医院编码</label>
 			<div class="layui-input-block">
-				<input type="text" name="hosid" lay-verify="hosid" placeholder="请输入医院编码" autocomplete="off" class="layui-input" />
+				<input type="text" name="hosid" lay-verify="hosid" th:value="${hos.hosid}" placeholder="请输入医院编码" class="layui-input" />
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">AppId</label>
 			<div class="layui-input-block">
-				<input type="text" name="appid" lay-verify="required" placeholder="请输入AppId" autocomplete="off" class="layui-input" />
+				<input type="text" name="appid" lay-verify="appid" th:value="${hos.appid}" placeholder="请输入AppId" class="layui-input" />
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">AppSecret</label>
 			<div class="layui-input-block">
-				<input type="text" name="appsecret" lay-verify="required" placeholder="请输入AppSecret" autocomplete="off" class="layui-input" />
+				<input type="text" name="appsecret" lay-verify="appsecret" th:value="${hos.appsecret}" placeholder="请输入AppSecret" class="layui-input" />
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">医院电话</label>
 			<div class="layui-input-block">
-				<input type="text" name="tel" lay-verify="number" placeholder="请输入医院电话" autocomplete="off" class="layui-input" />
+				<input type="text" name="tel" lay-verify="phonenumber" th:value="${hos.tel}" placeholder="请输入医院电话" class="layui-input" />
 			</div>
 		</div>
 		<button lay-filter="edit" lay-submit="" style="display: none;"></button>
