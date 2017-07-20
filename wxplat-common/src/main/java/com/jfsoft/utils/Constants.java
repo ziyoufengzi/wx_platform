@@ -18,6 +18,10 @@ public class Constants {
     //失败
     public static final String RETURN_STATUS_FAILURE = "failure";
 
+    /** 微信返回的常量 */
+    public static final String REQUEST_STATE_SUCCESS = "200";
+    public static final String REQUEST_STATE_FAILURE = "";
+
     /** 是否使用：是 */
     public static final String IS_USE_TRUE = "1";
     public static final String IS_USE_FALSE = "0";
@@ -68,9 +72,9 @@ public class Constants {
      */
     public enum UploadType {
 
-        LIS("1", "LIS"),
-        PEIS("2", "PEIS"),
-        USUAL("3", "通用类消息");
+        LIS("10", "LIS"),
+        PEIS("20", "PEIS"),
+        USUAL("30", "通用类消息");
 
         private String value;
         private String name;

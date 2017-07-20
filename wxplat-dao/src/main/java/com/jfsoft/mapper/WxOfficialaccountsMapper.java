@@ -8,6 +8,7 @@
 package com.jfsoft.mapper;
 
 import com.jfsoft.model.WxOfficialaccounts;
+import com.jfsoft.model.WxReportcard;
 
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,13 @@ import java.util.Map;
  * 2017年7月13日 上午9:54:03
  */
 public interface WxOfficialaccountsMapper {
+
+    /**
+     * 根据医院编码查询医院详情
+     * @param id
+     * @return
+     */
+    WxOfficialaccounts selectByHosId(String id);
 
     /**
      * 根据appId查询appSecret

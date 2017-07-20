@@ -32,9 +32,4 @@ public class WxUserImpl implements IWxUserService {
     public int updateTel(WxUser wxUser) {
         return wxUserMapper.updateTel(wxUser);
     }
-
-    @Override
-    public WxUser selectUserInfoByOpenId(String openId) {
-        return wxUserMapper.selectUserInfoByOpenId(openId);
-    }
 }

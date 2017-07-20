@@ -14,6 +14,14 @@
 		<result column="delTag" property="deltag" jdbcType="INTEGER" />
 	</resultMap>
 
+	<!-- 查询医院的详细信息 -->
+	<select id="selectByHosId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+		select
+			id,hosId,name,appId,appSecret,tel,createTime
+		from wx_officialaccounts
+		where hosId = #{id}
+	</select>
+
     <select id="selectAppSecretByAppId" resultType="com.jfsoft.model.WxOfficialaccounts" parameterType="java.lang.String" >
         SELECT * FROM wx_officialaccounts WHERE appId = #{appId,jdbcType=VARCHAR}
     </select>

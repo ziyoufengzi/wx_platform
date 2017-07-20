@@ -7,7 +7,6 @@
  */
 package com.jfsoft.mapper;
 
-import com.jfsoft.model.WxForward;
 import com.jfsoft.model.WxUser;
 
 /**
@@ -32,8 +31,4 @@ public interface WxUserMapper {
     int selectCountByOpenId(String openId);
 
     int updateTel(WxUser wxUser);
-
-    WxUser selectUserInfoByOpenId(String openId);
-
-
 }
