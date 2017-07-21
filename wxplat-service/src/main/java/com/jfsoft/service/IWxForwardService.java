@@ -3,6 +3,8 @@ package com.jfsoft.service;
 import com.jfsoft.model.WxForward;
 import com.jfsoft.model.WxUser;
 
+import java.util.List;
+
 /**
  * @author ChenXc
  * @version V1.0
@@ -15,4 +17,8 @@ public interface IWxForwardService {
     int delForward(String openId);
 
     int updateForWard(WxForward wxForward);
+
+    WxForward selectForward(String tel);
+
+    List<WxForward> queryforwardlist();
 }

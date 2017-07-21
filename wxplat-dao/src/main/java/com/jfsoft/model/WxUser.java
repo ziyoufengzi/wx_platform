@@ -64,12 +64,12 @@ public class WxUser {
     /**
      * 创建时间
      */
-    private Date creattime;
+    private Date createtime;
 
     /**
      * 创建人
      */
-    private String creatper;
+    private String createper;
 
     /**
      * 删除标志
@@ -148,20 +148,20 @@ public class WxUser {
         this.tel = tel == null ? null : tel.trim();
     }
 
-    public Date getCreattime() {
-        return creattime;
+    public Date getCreatetime() {
+        return createtime;
     }
 
-    public void setCreattime(Date creattime) {
-        this.creattime = creattime;
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 
-    public String getCreatper() {
-        return creatper;
+    public String getCreateper() {
+        return createper;
     }
 
-    public void setCreatper(String creatper) {
-        this.creatper = creatper == null ? null : creatper.trim();
+    public void setCreateper(String createper) {
+        this.createper = createper;
     }
 
     public String getDeltag() {

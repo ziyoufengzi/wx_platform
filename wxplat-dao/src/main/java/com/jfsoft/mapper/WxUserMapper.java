@@ -28,7 +28,22 @@ public interface WxUserMapper {
 
     int updateByPrimaryKey(WxUser record);
 
-    int selectCountByOpenId(String openId);
+    WxUser selectCountByOpenId(String openId);
 
     int updateTel(WxUser wxUser);
+
+    /**
+     * 根据手机号查询用户详情
+     * wanggang
+     * 2017-7-19 14:20:42
+     */
+    WxUser selectByTel(String tel);
+
+    /**
+     * 个人中心更新用户信息
+     * @param wxUser
+     * @return
+     */
+    int updateUserInfo(WxUser wxUser);
+
 }

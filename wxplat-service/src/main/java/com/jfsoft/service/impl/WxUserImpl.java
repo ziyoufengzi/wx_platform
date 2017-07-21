@@ -24,12 +24,21 @@ public class WxUserImpl implements IWxUserService {
     }
 
     @Override
-    public int selectCountByOpenId(String openId) {
+    public WxUser selectCountByOpenId(String openId) {
         return wxUserMapper.selectCountByOpenId(openId);
     }
 
     @Override
     public int updateTel(WxUser wxUser) {
         return wxUserMapper.updateTel(wxUser);
+    }
+
+    public WxUser getDetail(String tel) throws Exception {
+        return wxUserMapper.selectByTel(tel);
+    }
+
+    @Override
+    public int updataUserInfo(WxUser wxUser) throws Exception {
+        return wxUserMapper.updateUserInfo(wxUser);
     }
 }

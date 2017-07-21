@@ -9,6 +9,8 @@ package com.jfsoft.mapper;
 
 import com.jfsoft.model.WxForward;
 
+import java.util.List;
+
 /**
  * 微信转发人
  * wanggang
@@ -31,4 +33,17 @@ public interface WxForwardMapper {
     int delForward(String openId);
 
     int updateForWard(WxForward wxForward);
+
+    /**
+     * 查询单个转发人
+     * @param tel
+     * @return
+     */
+    WxForward selectForward(String tel);
+
+    /**
+     * 查询联系人列表
+     * @return
+     */
+    List<WxForward> queryforwardlist();
 }

@@ -12,7 +12,21 @@ public interface IWxUserService {
 
     int insert(WxUser record);
 
-    int selectCountByOpenId(String openId);
+    WxUser selectCountByOpenId(String openId);
 
     int updateTel(WxUser wxUser);
+
+    /**
+     * 查询微信用户详情
+     * wanggang
+     * 2017-7-19 14:22:01
+     */
+    public WxUser getDetail(String tel) throws Exception;
+
+    /**
+     * 个人中心更新用户信息
+     * @param wxUser
+     * @return
+     */
+    int updataUserInfo(WxUser wxUser) throws Exception;
 }

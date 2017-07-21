@@ -7,13 +7,13 @@
 		<result column="openId" property="openid" jdbcType="VARCHAR" />
 		<result column="name" property="name" jdbcType="VARCHAR" />
 		<result column="tel" property="tel" jdbcType="VARCHAR" />
-		<result column="creatTime" property="creattime" jdbcType="DATE" />
-		<result column="creatPer" property="creatper" jdbcType="VARCHAR" />
+		<result column="createtime" property="createtime" jdbcType="DATE" />
+		<result column="createper" property="createper" jdbcType="VARCHAR" />
 		<result column="delTag" property="deltag" jdbcType="INTEGER" />
 	</resultMap>
 
 	<sql id="Base_Column_List" >
-		ID, openId, name, tel, creatTime, creatPer, delTag
+		ID, openId, name, tel, createtime, createper, delTag
 	</sql>
 
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -30,10 +30,10 @@
 
 	<insert id="insert" parameterType="com.jfsoft.model.WxForward" >
 		insert into wx_forward (ID, openId, name, 
-			tel, creatTime, creatPer, 
+			tel, createtime, createper,
 			delTag)
 		values (#{id,jdbcType=INTEGER}, #{openid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-			#{tel,jdbcType=VARCHAR}, #{creattime,jdbcType=DATE}, #{creatper,jdbcType=VARCHAR}, 
+			#{tel,jdbcType=VARCHAR}, #{createtime,jdbcType=DATE}, #{createper,jdbcType=VARCHAR},
 			#{deltag,jdbcType=INTEGER})
 	</insert>
 
@@ -52,11 +52,11 @@
 			<if test="tel != null" >
 				tel,
 			</if>
-			<if test="creattime != null" >
-				creatTime,
+			<if test="createtime != null" >
+				createtime,
 			</if>
-			<if test="creatper != null" >
-				creatPer,
+			<if test="createper != null" >
+				createper,
 			</if>
 			<if test="deltag != null" >
 				delTag,
@@ -75,11 +75,11 @@
 			<if test="tel != null" >
 				#{tel,jdbcType=VARCHAR},
 			</if>
-			<if test="creattime != null" >
-				#{creattime,jdbcType=DATE},
+			<if test="createtime != null" >
+				#{createtime,jdbcType=DATE},
 			</if>
-			<if test="creatper != null" >
-				#{creatper,jdbcType=VARCHAR},
+			<if test="createper != null" >
+				#{createper,jdbcType=VARCHAR},
 			</if>
 			<if test="deltag != null" >
 				#{deltag,jdbcType=INTEGER},
@@ -99,11 +99,11 @@
 			<if test="tel != null" >
 				tel = #{tel,jdbcType=VARCHAR},
 			</if>
-			<if test="creattime != null" >
-				creatTime = #{creattime,jdbcType=DATE},
+			<if test="createtime != null" >
+				createtime = #{createtime,jdbcType=DATE},
 			</if>
-			<if test="creatper != null" >
-				creatPer = #{creatper,jdbcType=VARCHAR},
+			<if test="createper != null" >
+				createper = #{createper,jdbcType=VARCHAR},
 			</if>
 			<if test="deltag != null" >
 				delTag = #{deltag,jdbcType=INTEGER},
@@ -117,8 +117,8 @@
 		set openId = #{openid,jdbcType=VARCHAR},
 			name = #{name,jdbcType=VARCHAR},
 			tel = #{tel,jdbcType=VARCHAR},
-			creatTime = #{creattime,jdbcType=DATE},
-			creatPer = #{creatper,jdbcType=VARCHAR},
+			createtime = #{createtime,jdbcType=DATE},
+			createper = #{createper,jdbcType=VARCHAR},
 			delTag = #{deltag,jdbcType=INTEGER}
 		where ID = #{id,jdbcType=INTEGER}
 	</update>
@@ -130,7 +130,15 @@
 	<update id="updateForWard" parameterType="com.jfsoft.model.WxUser" >
 		UPDATE  wx_forward
 		SET tel = #{tel,jdbcType=VARCHAR},name = #{name,jdbcType=VARCHAR}
-		WHERE openId = #{openId,jdbcType=VARCHAR}
+		WHERE openId = #{openid,jdbcType=VARCHAR}
 	</update>
+
+	<select id="selectForward" parameterType="java.lang.String" resultType="com.jfsoft.model.WxForward">
+		SELECT * FROM  wx_forward WHERE tel = #{tel,jdbcType=VARCHAR}
+	</select>
+
+	<select id="queryforwardlist"  resultMap="BaseResultMap">
+		SELECT * FROM  wx_forward
+	</select>
 
 </mapper>

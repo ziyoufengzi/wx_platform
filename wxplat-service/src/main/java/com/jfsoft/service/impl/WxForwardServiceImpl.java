@@ -6,6 +6,8 @@ import com.jfsoft.service.IWxForwardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author ChenXc
  * @version V1.0
@@ -31,5 +33,15 @@ public class WxForwardServiceImpl implements IWxForwardService{
     @Override
     public int updateForWard(WxForward wxForward) {
         return wxForwardMapper.updateForWard(wxForward);
+    }
+
+    @Override
+    public WxForward selectForward(String tel) {
+        return wxForwardMapper.selectForward(tel);
+    }
+
+    @Override
+    public List<WxForward> queryforwardlist() {
+        return wxForwardMapper.queryforwardlist();
     }
 }

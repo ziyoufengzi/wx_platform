@@ -11,13 +11,13 @@
 		<result column="cid" property="cid" jdbcType="VARCHAR" />
 		<result column="email" property="email" jdbcType="VARCHAR" />
 		<result column="tel" property="tel" jdbcType="VARCHAR" />
-		<result column="creatTime" property="creattime" jdbcType="DATE" />
-		<result column="creatPer" property="creatper" jdbcType="VARCHAR" />
+		<result column="createtime" property="createtime" jdbcType="DATE" />
+		<result column="createper" property="createper" jdbcType="VARCHAR" />
 		<result column="delTag" property="deltag" jdbcType="CHAR" />
 	</resultMap>
 
 	<sql id="Base_Column_List" >
-		ID, appId, name, sex, age, cid, email, tel, creatTime, creatPer, delTag
+		ID, appId, name, sex, age, cid, email, tel, createtime, createper, delTag
 	</sql>
 
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -33,13 +33,13 @@
 	</delete>
 
 	<insert id="insert" parameterType="com.jfsoft.model.WxUser" >
-		insert into wx_user (ID, appId, name, 
+		insert into wx_user (ID, appId, openId, name,
 			sex, age, cid, email, 
-			tel, creatTime, creatPer, 
+			tel, createtime, createper,
 			delTag)
-		values (#{id,jdbcType=INTEGER}, #{appid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+		values (#{id,jdbcType=INTEGER}, #{appid,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
 			#{sex,jdbcType=CHAR}, #{age,jdbcType=INTEGER}, #{cid,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-			#{tel,jdbcType=VARCHAR}, #{creattime,jdbcType=DATE}, #{creatper,jdbcType=VARCHAR}, 
+			#{tel,jdbcType=VARCHAR}, #{createtime,jdbcType=DATE}, #{createper,jdbcType=VARCHAR},
 			#{deltag,jdbcType=CHAR})
 	</insert>
 
@@ -70,11 +70,11 @@
 			<if test="tel != null" >
 				tel,
 			</if>
-			<if test="creattime != null" >
-				creatTime,
+			<if test="createtime != null" >
+				createtime,
 			</if>
-			<if test="creatper != null" >
-				creatPer,
+			<if test="createper != null" >
+				createper,
 			</if>
 			<if test="deltag != null" >
 				delTag,
@@ -105,11 +105,11 @@
 			<if test="tel != null" >
 				#{tel,jdbcType=VARCHAR},
 			</if>
-			<if test="creattime != null" >
-				#{creattime,jdbcType=DATE},
+			<if test="createtime != null" >
+				#{createtime,jdbcType=DATE},
 			</if>
-			<if test="creatper != null" >
-				#{creatper,jdbcType=VARCHAR},
+			<if test="createper != null" >
+				#{createper,jdbcType=VARCHAR},
 			</if>
 			<if test="deltag != null" >
 				#{deltag,jdbcType=CHAR},
@@ -141,11 +141,11 @@
 			<if test="tel != null" >
 				tel = #{tel,jdbcType=VARCHAR},
 			</if>
-			<if test="creattime != null" >
-				creatTime = #{creattime,jdbcType=DATE},
+			<if test="createtime != null" >
+				createtime = #{createtime,jdbcType=DATE},
 			</if>
-			<if test="creatper != null" >
-				creatPer = #{creatper,jdbcType=VARCHAR},
+			<if test="createper != null" >
+				createper = #{createper,jdbcType=VARCHAR},
 			</if>
 			<if test="deltag != null" >
 				delTag = #{deltag,jdbcType=CHAR},
@@ -154,7 +154,7 @@
 		where ID = #{id,jdbcType=INTEGER}
 	</update>
 
-	<update id="updateByPrimaryKey" parameterType="com.jfsoft.model.WxUser" >
+	<update id="updateUserInfo" parameterType="com.jfsoft.model.WxUser" >
 		update wx_user
 		set appId = #{appid,jdbcType=VARCHAR},
 			name = #{name,jdbcType=VARCHAR},
@@ -163,14 +163,14 @@
 			cid = #{cid,jdbcType=VARCHAR},
 			email = #{email,jdbcType=VARCHAR},
 			tel = #{tel,jdbcType=VARCHAR},
-			creatTime = #{creattime,jdbcType=DATE},
-			creatPer = #{creatper,jdbcType=VARCHAR},
+			createTime = #{createtime,jdbcType=DATE},
+			createPer = #{createper,jdbcType=VARCHAR},
 			delTag = #{deltag,jdbcType=CHAR}
-		where ID = #{id,jdbcType=INTEGER}
+		where openId = #{openId,jdbcType=INTEGER}
 	</update>
 
-	<select id="selectCountByOpenId" parameterType="java.lang.String" resultType="java.lang.Integer">
-		SELECT COUNT (*) FROM  wx_user WHERE openId = #{openId,jdbcType=VARCHAR}
+	<select id="selectCountByOpenId" parameterType="java.lang.String" resultType="com.jfsoft.model.WxUser">
+		SELECT * FROM  wx_user WHERE openId = #{openId,jdbcType=VARCHAR}
 	</select>
 
 	<update id="updateTel" parameterType="com.jfsoft.model.WxUser" >
@@ -178,4 +178,10 @@
 		SET tel = #{tel,jdbcType=VARCHAR}
 		WHERE openId = #{openId,jdbcType=VARCHAR}
 	</update>
+
+	<!-- 查询微信用户的详细信息 -->
+	<select id="selectByTel" resultMap="BaseResultMap" parameterType="java.lang.String" >
+		SELECT id,appid,openid,NAME,createtime FROM wx_user WHERE tel=#{tel}
+    </select>
+
 </mapper>
