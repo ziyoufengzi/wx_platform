@@ -37,4 +37,25 @@ public interface IHospitalService {
      */
     public int save(WxOfficialaccounts wxOfficialaccounts) throws Exception;
 
+    /**
+     * 获取医院详情
+     * wanggang
+     * 2017-7-20 11:02:26
+     */
+    public WxOfficialaccounts getDetail(String hosId) throws Exception;
+
+    /**
+     * 更新医院信息
+     * wanggang
+     * 2017-7-20 11:02:26
+     */
+    public int update(WxOfficialaccounts wxOfficialaccounts) throws Exception;
+
+    /**
+     * 删除医院信息
+     * wanggang
+     * 2017-7-20 13:34:37
+     */
+    public int delete(String hosId) throws Exception;
+
 }

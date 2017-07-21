@@ -56,4 +56,18 @@ public interface WxOfficialaccountsMapper {
      */
     int insert(WxOfficialaccounts record);
 
+    /**
+     * 修改医院信息
+     * wanggang
+     * 2017-7-20 13:12:10
+     */
+    int updateById(WxOfficialaccounts record);
+
+    /**
+     * 删除医院信息
+     * wanggang
+     * 2017-7-20 13:33:34
+     */
+    int deleteByHosId(String hosId);
+
 }

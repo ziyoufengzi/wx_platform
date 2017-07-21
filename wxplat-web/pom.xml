@@ -10,7 +10,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>wxplat-web</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>wxplat-web Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
@@ -37,6 +37,11 @@
         <dependency>
             <groupId>com.jfsoft</groupId>
             <artifactId>wxplat-service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jfsoft</groupId>
+            <artifactId>wxplat-dao</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
