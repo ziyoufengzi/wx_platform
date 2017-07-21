@@ -42,17 +42,12 @@ public class ReportCardController extends BaseController {
     /**
      * 查询报告单列表
      * chenxiaochun
-     * @param code
      * @return
      */
-    @RequestMapping(value = "/index", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "/list", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public String getReport(@RequestParam String code, @RequestParam String appId, String pageNum, String pageSize){
-        //WxOfficialaccounts wxOfficialaccounts = wxOfficialaccountsService.selectAppSecretByAppId(appId);
-        //String appSecret = wxOfficialaccounts.getAppsecret();
-        //String requestUrl = getopenId_url.replace("APPID", appId).replace("SECRET", appSecret).replace("CODE", code);
-        //JSONObject jsonObject = WeixinUtil.httpRequest(requestUrl, "POST", "");
-        //String openId = jsonObject.getJSONObject("openid").toJSONString();
+    public String getReportList(String pageNum, String pageSize){
+
         logger.debug("查询医院信息列表");
 
         Map<String, Object> result = new HashMap<String, Object>();
