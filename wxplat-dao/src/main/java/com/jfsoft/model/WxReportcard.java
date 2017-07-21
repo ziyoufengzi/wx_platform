@@ -8,6 +8,7 @@
 package com.jfsoft.model;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * 微信报告单表
@@ -51,9 +52,14 @@ public class WxReportcard {
     private String reportContent;
 
     /**
-     * 报告单图片路径
+     * 报告单图片文件夹路径
      */
     private String reportImgurl;
+
+    /**
+     * 报告单图片集合
+     */
+    private List<String> reportImgurlList;
 
     /**
      * 报告单类型:1,Lis;2,PEIS;3,通用类消息
@@ -144,4 +150,13 @@ public class WxReportcard {
     public void setReportTimeStr(String reportTimeStr) {
         this.reportTimeStr = reportTimeStr;
     }
+
+    public List<String> getReportImgurlList() {
+        return reportImgurlList;
+    }
+
+    public void setReportImgurlList(List<String> reportImgurlList) {
+        this.reportImgurlList = reportImgurlList;
+    }
+
 }

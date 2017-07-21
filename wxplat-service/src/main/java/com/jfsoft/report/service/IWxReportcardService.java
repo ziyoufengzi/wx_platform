@@ -36,4 +36,11 @@ public interface IWxReportcardService {
      */
     public int save(WxReportcard wxReportcard) throws Exception;
 
+    /**
+     * 查询报告单总数
+     * wanggang
+     * 2017-7-21 17:54:32
+     */
+    public int findPageCount(String pageNum, String pageSize) throws Exception;
+
 }

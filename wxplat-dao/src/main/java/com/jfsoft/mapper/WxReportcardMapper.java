@@ -31,5 +31,12 @@ public interface WxReportcardMapper {
      * 2017年7月19日
      */
     List<WxReportcard> findPage(Map<String, Object> params);
+
+    /**
+     * 查询报告单总数
+     * wanggang
+     * 2017-7-21 17:51:14
+     */
+    int findPageCount(Map<String, Object> params);
     
 }

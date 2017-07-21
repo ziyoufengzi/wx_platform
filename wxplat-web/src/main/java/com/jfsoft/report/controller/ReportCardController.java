@@ -46,7 +46,7 @@ public class ReportCardController extends BaseController {
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public String getReportList(String pageNum, String pageSize){
+    public String getReportList(String pageNum, String pageSize, String callback){
 
         logger.debug("查询医院信息列表");
 
@@ -57,9 +57,20 @@ public class ReportCardController extends BaseController {
 
         try {
             wxReportcardList = wxReportcardService.findReportList(pageNum, pageSize);
+            //总条数
+            count = wxReportcardService.findPageCount(pageNum, pageSize);
 
             result.put("list", wxReportcardList);
             result.put("count", count);
+
+            //总页数
+            int pageSizeInt = Integer.parseInt(pageSize);
+            int remainder = count/pageSizeInt;
+            if(count%pageSizeInt == 0) {
+                result.put("pageCount", remainder);
+            } else {
+                result.put("pageCount", remainder + 1);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -67,7 +78,7 @@ public class ReportCardController extends BaseController {
         result.put("code", 0);
         result.put("message", "获取成功");
 
-        SimplePropertyPreFilter filter = new SimplePropertyPreFilter(WxOfficialaccounts.class,
+        SimplePropertyPreFilter filter = new SimplePropertyPreFilter(WxReportcard.class,
                 "id", "reportName", "reportTimeStr", "reportImgurl");
 
         String wxReportcardJson = JSON.toJSONString(result, filter,
@@ -75,7 +86,7 @@ public class ReportCardController extends BaseController {
                 SerializerFeature.WriteNullNumberAsZero,
                 SerializerFeature.WriteNullStringAsEmpty);
 
-        return wxReportcardJson;
+        return callback + "(" + wxReportcardJson + ")";
     }
 
     /**
@@ -85,7 +96,7 @@ public class ReportCardController extends BaseController {
      */
     @ResponseBody
     @RequestMapping(value = "/detail", method = {RequestMethod.GET, RequestMethod.POST})
-    public String getDetail(String id) {
+    public String getDetail(String id, String callback) {
 
         WxReportcard wxReportcard = null;
 
@@ -95,15 +106,15 @@ public class ReportCardController extends BaseController {
             e.printStackTrace();
         }
 
-        SimplePropertyPreFilter filter = new SimplePropertyPreFilter(WxOfficialaccounts.class,
-                "id", "reportName", "reportTimeStr", "reportImgurl");
+        SimplePropertyPreFilter filter = new SimplePropertyPreFilter(WxReportcard.class,
+                "id", "reportName", "reportTimeStr", "reportImgurlList");
 
         String detailJson = JSON.toJSONString(wxReportcard, filter,
                 SerializerFeature.WriteMapNullValue,
                 SerializerFeature.WriteNullNumberAsZero,
                 SerializerFeature.WriteNullStringAsEmpty);
 
-        return detailJson;
+        return callback + "(" + detailJson + ")";
     }
 
 }
