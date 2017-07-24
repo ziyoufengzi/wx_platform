@@ -41,4 +41,9 @@ public class WxUserImpl implements IWxUserService {
     public int updataUserInfo(WxUser wxUser) throws Exception {
         return wxUserMapper.updateUserInfo(wxUser);
     }
+
+    @Override
+    public int updatePicPath(WxUser wxUser) throws Exception {
+        return wxUserMapper.updatePicPath(wxUser);
+    }
 }

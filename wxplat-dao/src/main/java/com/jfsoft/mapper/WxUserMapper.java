@@ -28,6 +28,11 @@ public interface WxUserMapper {
 
     int updateByPrimaryKey(WxUser record);
 
+    /**
+     * 根据openId查询用户信息
+     * @param openId
+     * @return
+     */
     WxUser selectCountByOpenId(String openId);
 
     int updateTel(WxUser wxUser);
@@ -46,4 +51,10 @@ public interface WxUserMapper {
      */
     int updateUserInfo(WxUser wxUser);
 
+    /**
+     * 更新头像地址
+     * @param wxUser
+     * @return
+     */
+    int updatePicPath(WxUser wxUser);
 }

@@ -62,6 +62,11 @@ public class WxUser {
     private String tel;
 
     /**
+     * 头像路径
+     */
+    private String picpath;
+
+    /**
      * 创建时间
      */
     private Date createtime;
@@ -172,4 +177,11 @@ public class WxUser {
         this.deltag = deltag == null ? null : deltag.trim();
     }
 
+    public String getPicpath() {
+        return picpath;
+    }
+
+    public void setPicpath(String picpath) {
+        this.picpath = picpath;
+    }
 }

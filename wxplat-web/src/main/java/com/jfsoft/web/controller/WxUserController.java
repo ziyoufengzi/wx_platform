@@ -2,6 +2,9 @@ package com.jfsoft.web.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
+import com.jfsoft.model.WxForward;
 import com.jfsoft.model.WxOfficialaccounts;
 import com.jfsoft.model.WxUser;
 import com.jfsoft.service.IWxOfficialaccountsService;
@@ -9,8 +12,6 @@ import com.jfsoft.service.IWxUserService;
 import com.jfsoft.utils.Constants;
 import com.jfsoft.utils.HttpUtil;
 import com.jfsoft.utils.WeixinUtil;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -45,8 +46,6 @@ public class WxUserController {
     public final static String send_str = "account=ACCOUNT&pwd=PWD&product=PRODUCT&mobile=TEL&message=MESSAGE";
 
     private static Logger logger = LoggerFactory.getLogger(WxUserController.class);
-
-    private Map<String, Object> map = new HashMap<String, Object>();
 
     @Autowired
     private IWxOfficialaccountsService wxOfficialaccountsService;
@@ -81,7 +80,7 @@ public class WxUserController {
     @RequestMapping(value = "/login", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public String login(String appId, String tel, String code, String callback, HttpServletRequest request){
-
+        Map<String, Object> map = new HashMap<String, Object>();
         /**
          * 获取openId
          */
@@ -92,19 +91,30 @@ public class WxUserController {
         String openId = jsonObject.get("openid").toString();
 
         //查询是否存在用户
-        WxUser User = wxUserService.selectCountByOpenId(openId);
+        WxUser User = null;
+        try {
+            User = wxUserService.selectCountByOpenId(openId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         String telphone="";
 
         if(null!=User){
             telphone = User.getTel();
             if(!telphone.equals(tel)){
-                WxUser wxUser = new WxUser();
-                wxUser.setAppid(appId);
-                wxUser.setTel(telphone+","+tel);
-                wxUser.setOpenId(openId);
-                int b = wxUserService.updateTel(wxUser);
-                map.put("status", Constants.RETURN_STATUS_SUCCESS);
-                map.put("data", "openId为" + wxUser.getOpenId() + "的用户，使用新手机号" + tel + "进行登录");
+
+                try {
+                    WxUser wxUser = new WxUser();
+                    wxUser.setAppid(appId);
+                    wxUser.setTel(telphone+","+tel);
+                    wxUser.setOpenId(openId);
+                    int b = wxUserService.updateTel(wxUser);
+                    map.put("status", Constants.RETURN_STATUS_SUCCESS);
+                    map.put("data", "openId为" + wxUser.getOpenId() + "的用户，使用新手机号" + tel + "进行登录");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }else{
                 map.put("status", Constants.RETURN_STATUS_SUCCESS);
                 map.put("data", "该手机号已注册");
@@ -114,11 +124,16 @@ public class WxUserController {
              * 存储用户信息(登录时)
              * appId,openId,tel
              */
-            WxUser wxUser = new WxUser();
-            wxUser.setAppid(appId);
-            wxUser.setTel(tel);
-            wxUser.setOpenId(openId);
-            int i = wxUserService.insert(wxUser);
+            int i = 0;
+            try {
+                WxUser wxUser = new WxUser();
+                wxUser.setAppid(appId);
+                wxUser.setTel(tel);
+                wxUser.setOpenId(openId);
+                i = wxUserService.insert(wxUser);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             map.put("status", Constants.RETURN_STATUS_SUCCESS);
             map.put("data", "成功保存" + i + "条数据");
         }
@@ -126,17 +141,41 @@ public class WxUserController {
     }
 
     /**
-     * 根据openId查询用户信息
+     * 根据tel查询用户信息
      * @param
      * @return
      */
     @RequestMapping(value = "/getUserInfo", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public String getUserInfo(String callback){
-        WxUser User = wxUserService.selectCountByOpenId("123");
-        map.put("status", Constants.RETURN_STATUS_SUCCESS);
-        map.put("data", User);
-        return callback + "(" +JSON.toJSONString(map) + ")";
+    public String getUserInfo(String tel, String callback){
+        Map<String, Object> map = new HashMap<String, Object>();
+        WxUser user = null;
+        String wxUserJson = "";
+        String str = "";
+        try {
+            user = wxUserService.getDetail(tel);
+            String date = WeixinUtil.getDateSx();
+            if(user.getSex().equals("男")){
+                str = "先生";
+            }else {
+                str = "女士";
+            }
+            map.put("title", date + user.getName() +  str);
+            map.put("status", Constants.RETURN_STATUS_SUCCESS);
+            map.put("data", user);
+            SimplePropertyPreFilter filter = new SimplePropertyPreFilter(WxUser.class,
+                    "name", "sex", "age", "tel", "email", "picpath");
+            wxUserJson = JSON.toJSONString(map, filter,
+                    SerializerFeature.WriteMapNullValue,
+                    SerializerFeature.WriteNullNumberAsZero,
+                    SerializerFeature.WriteNullStringAsEmpty);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return callback + "(" +wxUserJson + ")";
     }
 
     /**
@@ -144,12 +183,18 @@ public class WxUserController {
      * @param params
      * @return
      */
-    @RequestMapping(value = "/updateUserInfo", method = RequestMethod.PUT, produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "/updateUserInfo", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public String updateUserInfo(String params, String callback){
-        WxUser user = JSON.parseObject(params, WxUser.class);
+
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        String str = null;
+
         try {
-            int i = wxUserService.updataUserInfo(user);
+            str = java.net.URLDecoder.decode(java.net.URLDecoder.decode(params, "UTF-8"),"UTF-8");
+            WxUser wxUser = JSON.parseObject(str, WxUser.class);
+            int i = wxUserService.updataUserInfo(wxUser);
             map.put("status", Constants.RETURN_STATUS_SUCCESS);
             map.put("data", "成功更新" + i + "条数据");
         } catch (Exception e) {
@@ -166,7 +211,9 @@ public class WxUserController {
      */
     @RequestMapping(value = "/upPic", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public String upPic(MultipartFile file, String callback){
+    public String upPic(HttpServletResponse response, @RequestPart MultipartFile file, String tel){
+
+        Map<String, Object> map = new HashMap<String, Object>();
 
         //判断文件是否为空
         if (!file.isEmpty()) {
@@ -177,17 +224,27 @@ public class WxUserController {
                 }
                 //文件保存路径
                 String filePath = picPath+"/"+file.getOriginalFilename();
-                map.put("filePath",tomcatImgPath + file.getOriginalFilename());
                 //转存文件
                 file.transferTo(new File(filePath));
-                map.put("state","保存成功");
+                String picpath = tomcatImgPath + file.getOriginalFilename();
+                WxUser wxUser = new WxUser();
+                wxUser.setTel(tel);
+                wxUser.setPicpath(picpath);
+                int i = wxUserService.updatePicPath(wxUser);
+                map.put("picpath", picpath);
+                map.put("status", Constants.RETURN_STATUS_SUCCESS);
             } catch (Exception e) {
-                map.put("state","保存失败");
+                map.put("status", Constants.RETURN_STATUS_FAILURE);
                 e.printStackTrace();
             }
         }
 
-        return callback + "(" +JSON.toJSONString(map) + ")";
+        response.addHeader("Access-Control-Allow-Origin", "*");
+        response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        response.setHeader("Access-Control-Allow-Headers", "x-requested-with");
+        response.addHeader("Access-Control-Max-Age", "1800");//30 min
+
+        return JSON.toJSONString(map);
     }
 
 
@@ -199,6 +256,8 @@ public class WxUserController {
     @RequestMapping(value = "/sendCode", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public String sendCode(String tel, String callback) throws UnsupportedEncodingException {
+
+        Map<String, Object> map = new HashMap<String, Object>();
         //生成6位验证码
         String code;
         while (true){

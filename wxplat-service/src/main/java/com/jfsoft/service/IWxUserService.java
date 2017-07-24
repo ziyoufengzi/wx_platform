@@ -10,11 +10,11 @@ import com.jfsoft.model.WxUser;
  */
 public interface IWxUserService {
 
-    int insert(WxUser record);
+    int insert(WxUser record) throws Exception;
 
-    WxUser selectCountByOpenId(String openId);
+    WxUser selectCountByOpenId(String openId) throws Exception;
 
-    int updateTel(WxUser wxUser);
+    int updateTel(WxUser wxUser) throws Exception;
 
     /**
      * 查询微信用户详情
@@ -29,4 +29,6 @@ public interface IWxUserService {
      * @return
      */
     int updataUserInfo(WxUser wxUser) throws Exception;
+
+    int updatePicPath(WxUser wxUser) throws Exception;
 }

@@ -33,8 +33,8 @@
 			tel, createtime, createper,
 			delTag)
 		values (#{id,jdbcType=INTEGER}, #{openid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-			#{tel,jdbcType=VARCHAR}, #{createtime,jdbcType=DATE}, #{createper,jdbcType=VARCHAR},
-			#{deltag,jdbcType=INTEGER})
+			#{tel,jdbcType=VARCHAR}, NOW(), "1",
+			"0")
 	</insert>
 
 	<insert id="insertSelective" parameterType="com.jfsoft.model.WxForward" >
@@ -123,14 +123,14 @@
 		where ID = #{id,jdbcType=INTEGER}
 	</update>
 
-	<delete id="delForward" parameterType="java.lang.String">
-		DELETE FROM wx_forward WHERE openId= #{openid,jdbcType=VARCHAR}
-	</delete>
+	<update id="delForward" parameterType="java.lang.String">
+		UPDATE wx_forward SET delTag = "1" WHERE tel= #{tel,jdbcType=VARCHAR}
+	</update>
 
 	<update id="updateForWard" parameterType="com.jfsoft.model.WxUser" >
 		UPDATE  wx_forward
 		SET tel = #{tel,jdbcType=VARCHAR},name = #{name,jdbcType=VARCHAR}
-		WHERE openId = #{openid,jdbcType=VARCHAR}
+		WHERE ID = #{id}
 	</update>
 
 	<select id="selectForward" parameterType="java.lang.String" resultType="com.jfsoft.model.WxForward">

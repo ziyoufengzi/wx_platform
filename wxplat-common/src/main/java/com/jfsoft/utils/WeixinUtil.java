@@ -17,6 +17,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.ConnectException;
 import java.net.URL;
+import java.util.Calendar;
 import java.util.Random;
 
 
@@ -124,4 +125,21 @@ public class WeixinUtil {
         return jsonObject;
     }
 
+    public static String getDateSx() {
+        String dateSx = "";
+        Calendar cal = Calendar.getInstance();
+        int hour = cal.get(Calendar.HOUR_OF_DAY);
+        if (hour >= 6 && hour < 8) {
+            dateSx = "早上好！";
+        } else if (hour >= 8 && hour < 11) {
+            dateSx = "上午好！";
+        } else if (hour >= 11 && hour < 13) {
+            dateSx = "中午好！";
+        } else if (hour >= 13 && hour < 18) {
+            dateSx = "下午好！";
+        } else {
+            dateSx = "晚上好！";
+        }
+        return dateSx;
+    }
 }

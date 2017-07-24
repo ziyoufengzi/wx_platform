@@ -1,17 +1,16 @@
 package com.jfsoft.web.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
 import com.jfsoft.model.WxForward;
 import com.jfsoft.service.IWxForwardService;
 import com.jfsoft.utils.Constants;
 import org.apache.log4j.Logger;
-import org.omg.CORBA.CODESET_INCOMPATIBLE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
-import java.util.ArrayList;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,29 +39,33 @@ public class WxForwardController {
      */
     @RequestMapping(value = "/addforward", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public String addForward(String params){
+    public String addForward(String params, String callback){
+        try {
+            String str = java.net.URLDecoder.decode(java.net.URLDecoder.decode(params, "UTF-8"),"UTF-8");
+            WxForward wxForward = JSON.parseObject(str, WxForward.class);
+            int i = wxForwardService.insert(wxForward);
+            map.put("status", Constants.RETURN_STATUS_SUCCESS);
+            map.put("data", i+"条转发人存储成功");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
-        WxForward wxForward = JSON.parseObject(params, WxForward.class);
-        int i = wxForwardService.insert(wxForward);
-        map.put("status", Constants.RETURN_STATUS_SUCCESS);
-        map.put("data", i+"条转发人存储成功");
-        return JSON.toJSONString(map);
-
+        return callback + "(" +JSON.toJSONString(map) + ")";
     }
 
     /**
      * 删除转发人
-     * @param openId
+     * @param tel
      * @return
      */
-    @RequestMapping(value = "delforward", method = RequestMethod.DELETE, produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "delforward", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public String delForward(String openId){
+    public String delForward(String tel, String callback){
 
-        int i = wxForwardService.delForward(openId);
+        int i = wxForwardService.delForward(tel);
         map.put("status", Constants.RETURN_STATUS_SUCCESS);
-        map.put("data", "删除成功");
-        return JSON.toJSONString(map);
+        map.put("data", "删除成功" + i + "条记录");
+        return callback + "(" +JSON.toJSONString(map) + ")";
 
     }
 
@@ -73,17 +76,20 @@ public class WxForwardController {
      */
     @RequestMapping(value = "upforward", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public String updateForward(String params){
+    public String updateForward(String params, String callback){
+        String str = null;
+        try {
+            str = java.net.URLDecoder.decode(java.net.URLDecoder.decode(params, "UTF-8"),"UTF-8");
+            WxForward wxForward = JSON.parseObject(str, WxForward.class);
+            int i = wxForwardService.updateForWard(wxForward);
+            map.put("status", Constants.RETURN_STATUS_SUCCESS);
+            map.put("data", "修改成功" + i + "条记录");
+            logger.info("修改成功" + i + "条记录");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
-        WxForward wxForward = JSON.parseObject(params, WxForward.class);
-        wxForward.setName(wxForward.getName());
-        wxForward.setTel(wxForward.getTel());
-        int i = wxForwardService.updateForWard(wxForward);
-        map.put("status", Constants.RETURN_STATUS_SUCCESS);
-        map.put("data", "修改成功" + i + "条记录");
-        logger.info("修改成功" + i + "条记录");
-        return JSON.toJSONString(map);
-
+        return callback + "(" +JSON.toJSONString(map) + ")";
     }
 
     /**
@@ -93,13 +99,18 @@ public class WxForwardController {
      */
     @RequestMapping(value = "queryforward", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public String getForward(String tel){
+    public String getForward(String tel, String callback){
 
         WxForward wxForward = wxForwardService.selectForward(tel);
-        String forward = JSON.toJSONString(wxForward);
         map.put("status", Constants.RETURN_STATUS_SUCCESS);
-        map.put("data", forward);
-        return JSON.toJSONString(map);
+        map.put("data", wxForward);
+        SimplePropertyPreFilter filter = new SimplePropertyPreFilter(WxForward.class,
+                "id", "name", "openid", "tel");
+        String wxForwardJson = JSON.toJSONString(map, filter,
+                SerializerFeature.WriteMapNullValue,
+                SerializerFeature.WriteNullNumberAsZero,
+                SerializerFeature.WriteNullStringAsEmpty);
+        return callback + "(" + wxForwardJson + ")";
 
     }
 
@@ -108,13 +119,20 @@ public class WxForwardController {
      */
     @RequestMapping(value = "queryforwardlist", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public String getForward(){
+    public String getForward(String callback){
 
         List<WxForward> list = wxForwardService.queryforwardlist();
-        String str = JSON.toJSONString(list);
         map.put("status", Constants.RETURN_STATUS_SUCCESS);
-        map.put("data", str);
-        return JSON.toJSONString(map);
+        map.put("data", list);
+        SimplePropertyPreFilter filter = new SimplePropertyPreFilter(WxForward.class,
+                "id", "name", "openid", "tel");
+
+        String wxForwardJson = JSON.toJSONString(map, filter,
+                SerializerFeature.WriteMapNullValue,
+                SerializerFeature.WriteNullNumberAsZero,
+                SerializerFeature.WriteNullStringAsEmpty);
+
+        return callback + "(" + wxForwardJson + ")";
 
     }
 }

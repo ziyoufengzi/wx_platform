@@ -30,7 +30,7 @@ public interface WxForwardMapper {
 
     int updateByPrimaryKey(WxForward record);
 
-    int delForward(String openId);
+    int delForward(String tel);
 
     int updateForWard(WxForward wxForward);
 

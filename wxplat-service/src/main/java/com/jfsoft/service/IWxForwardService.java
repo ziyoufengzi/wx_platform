@@ -14,7 +14,7 @@ import java.util.List;
 public interface IWxForwardService {
     int insert(WxForward wxForward);
 
-    int delForward(String openId);
+    int delForward(String tel);
 
     int updateForWard(WxForward wxForward);
 

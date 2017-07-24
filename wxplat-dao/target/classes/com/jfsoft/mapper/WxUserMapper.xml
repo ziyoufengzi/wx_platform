@@ -166,7 +166,7 @@
 			createTime = #{createtime,jdbcType=DATE},
 			createPer = #{createper,jdbcType=VARCHAR},
 			delTag = #{deltag,jdbcType=CHAR}
-		where openId = #{openId,jdbcType=INTEGER}
+		where tel LIKE CONCAT('%',#{tel},'%')
 	</update>
 
 	<select id="selectCountByOpenId" parameterType="java.lang.String" resultType="com.jfsoft.model.WxUser">
@@ -179,9 +179,13 @@
 		WHERE openId = #{openId,jdbcType=VARCHAR}
 	</update>
 
+	<update id="updatePicPath" parameterType="com.jfsoft.model.WxUser" >
+		UPDATE  wx_user SET picPath = #{picpath} WHERE tel LIKE CONCAT('%',#{tel},'%')
+	</update>
+
 	<!-- 查询微信用户的详细信息 -->
 	<select id="selectByTel" resultMap="BaseResultMap" parameterType="java.lang.String" >
-		SELECT id,appid,openid,NAME,createtime FROM wx_user WHERE tel=#{tel}
+		SELECT * FROM wx_user WHERE tel LIKE CONCAT('%',#{tel},'%')
     </select>
 
 </mapper>

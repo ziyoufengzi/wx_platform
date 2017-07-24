@@ -26,8 +26,8 @@ public class WxForwardServiceImpl implements IWxForwardService{
     }
 
     @Override
-    public int delForward(String openId){
-        return wxForwardMapper.delForward(openId);
+    public int delForward(String tel){
+        return wxForwardMapper.delForward(tel);
     }
 
     @Override
