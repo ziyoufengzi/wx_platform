@@ -84,11 +84,16 @@ public class WxUserController {
         /**
          * 获取openId
          */
+
+        logger.info("appid is {}, tel is {}, code is {}, callback is {}.", appId, tel, code, callback);
+
         WxOfficialaccounts wxOfficialaccounts = wxOfficialaccountsService.selectAppSecretByAppId(appId);
         String appSecret = wxOfficialaccounts.getAppsecret();
         String requestUrl = getopenId_url.replace("APPID", appId).replace("SECRET", appSecret).replace("CODE", code);
         JSONObject jsonObject = WeixinUtil.httpRequest(requestUrl, "POST", "");
         String openId = jsonObject.get("openid").toString();
+
+        logger.info("openId is {}.", openId);
 
         //查询是否存在用户
         WxUser User = null;
