@@ -30,7 +30,6 @@ public class WxForwardController {
 
     private static Logger logger = Logger.getLogger(WxForwardController.class);
 
-    private static Map<String, Object> map = new HashMap<String, Object>();
 
     /**
      * 增加转发人
@@ -40,6 +39,8 @@ public class WxForwardController {
     @RequestMapping(value = "/addforward", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public String addForward(String params, String callback){
+
+        Map<String, Object> map = new HashMap<String, Object>();
         try {
             String str = java.net.URLDecoder.decode(java.net.URLDecoder.decode(params, "UTF-8"),"UTF-8");
             WxForward wxForward = JSON.parseObject(str, WxForward.class);
@@ -62,6 +63,8 @@ public class WxForwardController {
     @ResponseBody
     public String delForward(String tel, String callback){
 
+        Map<String, Object> map = new HashMap<String, Object>();
+
         int i = wxForwardService.delForward(tel);
         map.put("status", Constants.RETURN_STATUS_SUCCESS);
         map.put("data", "删除成功" + i + "条记录");
@@ -77,6 +80,8 @@ public class WxForwardController {
     @RequestMapping(value = "upforward", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public String updateForward(String params, String callback){
+
+        Map<String, Object> map = new HashMap<String, Object>();
         String str = null;
         try {
             str = java.net.URLDecoder.decode(java.net.URLDecoder.decode(params, "UTF-8"),"UTF-8");
@@ -101,6 +106,8 @@ public class WxForwardController {
     @ResponseBody
     public String getForward(String tel, String callback){
 
+        Map<String, Object> map = new HashMap<String, Object>();
+
         WxForward wxForward = wxForwardService.selectForward(tel);
         map.put("status", Constants.RETURN_STATUS_SUCCESS);
         map.put("data", wxForward);
@@ -120,6 +127,8 @@ public class WxForwardController {
     @RequestMapping(value = "queryforwardlist", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public String getForward(String callback){
+
+        Map<String, Object> map = new HashMap<String, Object>();
 
         List<WxForward> list = wxForwardService.queryforwardlist();
         map.put("status", Constants.RETURN_STATUS_SUCCESS);

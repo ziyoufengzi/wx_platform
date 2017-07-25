@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
-import com.jfsoft.model.WxForward;
 import com.jfsoft.model.WxOfficialaccounts;
 import com.jfsoft.model.WxUser;
 import com.jfsoft.service.IWxOfficialaccountsService;
@@ -79,7 +78,8 @@ public class WxUserController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public String login(String appId, String tel, String code, String callback, HttpServletRequest request){
+    public String login(String appId, String tel, String code, String callback){
+
         Map<String, Object> map = new HashMap<String, Object>();
         /**
          * 获取openId
@@ -99,48 +99,41 @@ public class WxUserController {
         WxUser User = null;
         try {
             User = wxUserService.selectCountByOpenId(openId);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        String telphone="";
 
-        if(null!=User){
-            telphone = User.getTel();
-            if(!telphone.equals(tel)){
+            String telphone = "";
 
-                try {
+            if (null != User) {
+                telphone = User.getTel();
+                if (!telphone.equals(tel)) {
                     WxUser wxUser = new WxUser();
                     wxUser.setAppid(appId);
-                    wxUser.setTel(telphone+","+tel);
+                    wxUser.setTel(telphone + "," + tel);
                     wxUser.setOpenId(openId);
                     int b = wxUserService.updateTel(wxUser);
                     map.put("status", Constants.RETURN_STATUS_SUCCESS);
                     map.put("data", "openId为" + wxUser.getOpenId() + "的用户，使用新手机号" + tel + "进行登录");
-                } catch (Exception e) {
-                    e.printStackTrace();
+                } else {
+                    map.put("status", Constants.RETURN_STATUS_SUCCESS);
+                    map.put("data", "该手机号已注册");
                 }
+            } else if (null == User) {
+                /**
+                 * 存储用户信息(登录时)
+                 * appId,openId,tel
+                 */
+                int i = 0;
 
-            }else{
-                map.put("status", Constants.RETURN_STATUS_SUCCESS);
-                map.put("data", "该手机号已注册");
-            }
-        } else if(null==User){
-            /**
-             * 存储用户信息(登录时)
-             * appId,openId,tel
-             */
-            int i = 0;
-            try {
                 WxUser wxUser = new WxUser();
                 wxUser.setAppid(appId);
                 wxUser.setTel(tel);
                 wxUser.setOpenId(openId);
                 i = wxUserService.insert(wxUser);
-            } catch (Exception e) {
-                e.printStackTrace();
+                map.put("status", Constants.RETURN_STATUS_SUCCESS);
+                map.put("data", "成功保存" + i + "条数据");
+
             }
-            map.put("status", Constants.RETURN_STATUS_SUCCESS);
-            map.put("data", "成功保存" + i + "条数据");
+        }catch (Exception e){
+            e.printStackTrace();
         }
         return callback + "(" +JSON.toJSONString(map) + ")";
     }
@@ -162,8 +155,10 @@ public class WxUserController {
             String date = WeixinUtil.getDateSx();
             if(user.getSex().equals("男")){
                 str = "先生";
-            }else {
+            }else if(user.getSex().equals("女")){
                 str = "女士";
+            }else {
+                str = "";
             }
             map.put("title", date + user.getName() +  str);
             map.put("status", Constants.RETURN_STATUS_SUCCESS);
@@ -261,6 +256,8 @@ public class WxUserController {
     @RequestMapping(value = "/sendCode", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public String sendCode(String tel, String callback) throws UnsupportedEncodingException {
+
+        logger.debug("sendCode callback is {}", callback);
 
         Map<String, Object> map = new HashMap<String, Object>();
         //生成6位验证码

@@ -39,8 +39,7 @@
 			delTag)
 		values (#{id,jdbcType=INTEGER}, #{appid,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
 			#{sex,jdbcType=CHAR}, #{age,jdbcType=INTEGER}, #{cid,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-			#{tel,jdbcType=VARCHAR}, #{createtime,jdbcType=DATE}, #{createper,jdbcType=VARCHAR},
-			#{deltag,jdbcType=CHAR})
+			#{tel,jdbcType=VARCHAR}, NOW(), "1", "0")
 	</insert>
 
 	<insert id="insertSelective" parameterType="com.jfsoft.model.WxUser" >
